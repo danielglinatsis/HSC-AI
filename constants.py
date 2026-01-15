@@ -1,7 +1,12 @@
 import re
 
+BM25_TOP_K = 25
+FAISS_TOP_K = 5
+
 FILE_PATH = "exams/2022-hsc-mathematics-advanced.pdf"
 EXAM_DIR = "exams"
+PICKLE_PATH = "doc_processing/data/all_questions.pkl"
+
 LEFT_MARGIN_THRESHOLD = 80 
 TOP_MARGIN_THRESHOLD = 50
 BOTTOM_MARGIN_THRESHOLD = 50
@@ -68,3 +73,9 @@ EXEMPTIONS = {
     "continues on page",
     "marks in total"
 }
+
+RAG_INSTRUCTIONS = """
+You are a AI study tool that aims to assist students in revising for their exams.
+You will be given a user query that requests which specific topics/concepts the student wishes to revise.
+You will then return relevant questions from the student's exam papers that cover the requested topics/concepts.
+"""

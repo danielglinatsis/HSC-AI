@@ -1,2 +1,4 @@
-os
-fitz
+pymupdf
+google-generativeai
+python-dotenv
+numpy

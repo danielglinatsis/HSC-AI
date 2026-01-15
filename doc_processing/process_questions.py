@@ -4,6 +4,7 @@ import pickle
 from pathlib import Path
 
 import doc_extractor
+from constants import PICKLE_PATH
 
 def process_questions(all_metadata, all_qs):
     out_path = Path("doc_processing/data/all_questions.pkl")
@@ -18,6 +19,11 @@ def process_questions(all_metadata, all_qs):
             f, 
             protocol=pickle.HIGHEST_PROTOCOL
         )
+
+def load_questions():
+    with open(PICKLE_PATH, "rb") as f:
+        data = pickle.load(f)
+    return data["metadata"], data["questions"]
 
 if __name__ == "__main__":
     all_metadata, all_qs = doc_extractor.all_questions()
