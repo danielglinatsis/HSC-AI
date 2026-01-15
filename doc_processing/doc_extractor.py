@@ -1,6 +1,11 @@
 import re
 import fitz
 import os
+import sys
+
+# Add the parent directory to sys.path to allow importing constants from the root
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
 from constants import EXEMPTIONS, FILE_PATH, QUESTION_REGEX, LEFT_MARGIN_THRESHOLD, TOP_MARGIN_THRESHOLD, BOTTOM_MARGIN_THRESHOLD, MIN_BODY_FONT_SIZE
 
 # =========================
@@ -240,7 +245,6 @@ def combine_snippets(questions):
 
     return combined_questions
 
-
 # =========================
 # FULL PIPELINE
 # =========================
@@ -251,20 +255,15 @@ def question_to_text(file_path):
     final_questions = combine_snippets(questions)
     return metadata, final_questions
 
+def all_questions():
+    all_metadata = []
+    all_qs = []
+    for file in os.listdir("exams"):
+        print(f"Processing {file}")
+        metadata, qs = question_to_text(f"exams/{file}")
+        all_metadata.append(metadata)
+        all_qs.append(qs)
+    return all_metadata, all_qs
 
-# =========================
-# DEBUG PRINT
-# =========================
-
-def print_questions(questions):
-    filename = os.path.basename(FILE_PATH)
-    for i, q in enumerate(questions, 1):
-        print(f"\n--- {filename} - Question {i} (Page {q['page']}) ---\n{q['text']}\n")
-
-
-# =========================
-# RUN
-# =========================
-
-metadata, qs = question_to_text(FILE_PATH)
-print_questions(qs)
+if __name__ == "__main__":
+    all_questions()

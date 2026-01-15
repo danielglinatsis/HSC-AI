@@ -1,7 +1,7 @@
 import re
 
 FILE_PATH = "exams/2022-hsc-mathematics-advanced.pdf"
-
+EXAM_DIR = "exams"
 LEFT_MARGIN_THRESHOLD = 80 
 TOP_MARGIN_THRESHOLD = 50
 BOTTOM_MARGIN_THRESHOLD = 50
