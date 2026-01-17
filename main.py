@@ -23,9 +23,8 @@ def main():
             print("----------------------------")
         except Exception as e:
             print(f"An error occurred: {e}")
-        pdf_generator.build_custom_pdf(response)
-        print(f"Generated PDF: {pdf_generator.build_custom_pdf(response)}")
-        print("----------------------------")
+        pdf_name = f"{query}.pdf"
+        pdf_generator.build_custom_pdf(response, "exams", pdf_name)
 
 if __name__ == "__main__":
     main()
