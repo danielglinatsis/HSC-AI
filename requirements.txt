@@ -1,4 +1,10 @@
 pymupdf
+pypdf
 google-generativeai
 python-dotenv
 numpy
+langchain
+langchain-community
+langchain-huggingface
+faiss-cpu
+sentence-transformers

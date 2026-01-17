@@ -266,4 +266,4 @@ def all_questions():
     return all_metadata, all_qs
 
 if __name__ == "__main__":
-    all_questions()
+    _, all_qs = all_questions()

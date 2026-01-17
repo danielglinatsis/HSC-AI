@@ -7,6 +7,10 @@ FILE_PATH = "exams/2022-hsc-mathematics-advanced.pdf"
 EXAM_DIR = "exams"
 PICKLE_PATH = "doc_processing/data/all_questions.pkl"
 
+FAISS_ROOT = "experiments/faiss/indexes"
+FAISS_NAME = "corpus_faiss"
+EMBEDDING_MODEL = "sentence-transformers/all-MiniLM-L6-v2"
+
 LEFT_MARGIN_THRESHOLD = 80 
 TOP_MARGIN_THRESHOLD = 50
 BOTTOM_MARGIN_THRESHOLD = 50
