@@ -12,9 +12,12 @@ from reportlab.lib import colors
 def group_pages_by_exam(docs):
     pages_by_exam = defaultdict(set)
     for doc in docs:
-        exam = doc.metadata["exam"]
-        page = doc.metadata["page"] - 1  # PDFs are 0-indexed
-        pages_by_exam[exam].add(page)
+        exam = doc.metadata.get("exam")
+        page = doc.metadata.get("page")
+        if exam and page is not None:
+            pages_by_exam[exam].add(page - 1)  # PDFs are 0-indexed
+        else:
+            print(f"Warning: Document missing 'exam' or 'page' metadata: {doc.metadata}")
     return pages_by_exam
 
 # -----------------------------
@@ -23,8 +26,7 @@ def group_pages_by_exam(docs):
 
 def create_header_page(original_page, label_text):
     """
-    Returns a new page with a header overlayed on the original page.
-    Header text is red and positioned near the top.
+    Returns a new page with a header overlayed on the original page
     """
     packet = io.BytesIO()
     can = canvas.Canvas(packet, pagesize=letter)

@@ -1,5 +1,6 @@
 import os
 import sys
+import torch
 from pathlib import Path
 from typing import Iterable, List
 
@@ -8,9 +9,13 @@ from constants import BM25_TOP_K, FAISS_TOP_K, FAISS_ROOT, FAISS_NAME, EMBEDDING
 
 from langchain_community.retrievers import BM25Retriever
 from langchain_community.vectorstores import FAISS
-from langchain.retrievers import EnsembleRetriever
+from langchain_classic.retrievers import EnsembleRetriever
 from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_core.documents import Document
+from constants import COLBERT_TOP_K
+
+from sentence_transformers import CrossEncoder
+
 
 def flatten(items: Iterable) -> List:
     return [
@@ -81,47 +86,53 @@ def setup_faiss_retriever(docs: List[Document]):
     return vs.as_retriever(search_kwargs={"k": FAISS_TOP_K})
 
 
-def setup_ensemble_retriever(docs: List[Document]):
-    bm25 = setup_bm25_retriever(docs)
-    faiss = setup_faiss_retriever(docs)
-
-    print("Ensemble retriever setup complete")
-    return EnsembleRetriever(
-        retrievers=[bm25, faiss],
-        weights=[0.4, 0.6],
-    )
-
-
-def create_ensemble_retriever():
-    from doc_processing import doc_extractor
-
-    all_metadata, nested_questions = doc_extractor.all_questions()
-    exam_files = os.listdir("exams")
-
-    # Attach exam source
-    for exam, qs in zip(exam_files, nested_questions):
-        for q in qs:
-            q["exam"] = exam
+def create_ensemble_retriever(all_metadata, nested_questions, weights=[0.4,0.6]):
 
     flat_questions = flatten(nested_questions)
 
     if not flat_questions:
         print("No questions found")
-        return None, all_metadata, nested_questions
+        return None
 
     docs = [
         Document(
             page_content=q["text"],
-            metadata={k: v for k, v in q.items() if k != "text"},
+            metadata={k:v for k,v in q.items() if k != "text"},
         )
         for q in flat_questions
     ]
 
-    retriever = setup_ensemble_retriever(docs)
-    return retriever, all_metadata, nested_questions
+    # Create ensemble retriever
+    bm25 = setup_bm25_retriever(docs)
+    faiss = setup_faiss_retriever(docs)
+    retriever = EnsembleRetriever(retrievers=[bm25, faiss], weights=weights)
 
+    return retriever
+
+def load_reranker():
+    device = "cuda" if torch.cuda.is_available() else "cpu"
+    model_name = "cross-encoder/ms-marco-MiniLM-L-6-v2"
+    reranker = CrossEncoder(model_name, device=device)
+    return reranker
+
+def rerank_documents(reranker, query, qs, top_k=COLBERT_TOP_K):
+    # Extract text from Document objects if needed
+    texts = [q.page_content if hasattr(q, 'page_content') else q for q in qs]
+    
+    # Create query-document pairs
+    pairs = [[query, text] for text in texts]
+    
+    # Get scores from cross-encoder
+    scores = reranker.predict(pairs)
+    
+    # Sort by score and return top-k
+    reranked = sorted(zip(scores.tolist(), qs), key=lambda x: x[0], reverse=True)
+    return [doc for score, doc in reranked[:top_k]]
 
 if __name__ == "__main__":
-    retriever, _, _ = create_ensemble_retriever()
+    from doc_processing import doc_extractor
+    pickle_path = "doc_processing/data/all_questions.pkl"
+    all_metadata, all_qs = doc_extractor.process_exams(pickle_path)
+    retriever = create_ensemble_retriever(all_metadata, all_qs)
     if retriever:
         print("Ensemble retriever is ready for use.")

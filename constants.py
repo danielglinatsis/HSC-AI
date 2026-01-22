@@ -1,10 +1,11 @@
 import re
 
 BM25_TOP_K = 25
-FAISS_TOP_K = 5
+FAISS_TOP_K = 25
+COLBERT_TOP_K = 10
 
-FILE_PATH = "exams/2022-hsc-mathematics-advanced.pdf"
 EXAM_DIR = "exams"
+REVISION_DIR = "revision_files"
 PICKLE_PATH = "doc_processing/data/all_questions.pkl"
 
 FAISS_ROOT = "experiments/faiss/indexes"

@@ -1,11 +1,19 @@
-import rag_pipeline
-from doc_processing import pdf_generator
-from setup import retriever_setup, ai_model_setup
+import retrieval_pipeline
+from doc_processing import pdf_generator, doc_extractor
+from setup import retriever_setup
 
-def main():
-    
-    retriever, all_metadata, all_qs = retriever_setup.create_ensemble_retriever()
-    ai_model = ai_model_setup.google_api_setup()
+from constants import REVISION_DIR
+
+def setup():
+    #Process docs
+    pickle_path = "doc_processing/data/all_questions.pkl"
+    all_metadata, all_qs = doc_extractor.process_exams(pickle_path)
+    #retriever setup
+    retriever = retriever_setup.create_ensemble_retriever(all_metadata, all_qs)
+
+    return retriever
+
+def run(retriever):
 
     while True:
         print("\nWhat do you wish to revise? (Enter 'q' to quit)")
@@ -17,14 +25,15 @@ def main():
 
         print("Searching for relevant questions and generating response...")
         try:
-            response = rag_pipeline.get_rag_response(query, retriever)
+            response = retrieval_pipeline.get_response(query, retriever)
             print("\n--- AI REVISION ASSISTANT ---")
             print(response)
             print("----------------------------")
         except Exception as e:
             print(f"An error occurred: {e}")
         pdf_name = f"{query}.pdf"
-        pdf_generator.build_custom_pdf(response, "exams", pdf_name)
+        pdf_generator.build_custom_pdf(response, "exams", f"{REVISION_DIR}/{pdf_name}")
 
 if __name__ == "__main__":
-    main()
+    retriever = setup()
+    run(retriever)
