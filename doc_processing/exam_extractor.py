@@ -6,16 +6,15 @@ import pickle
 
 from pathlib import Path
 
+from helpers import flatten
+
 # -------------------------------------------------
 # Allow importing constants from project root
 # -------------------------------------------------
-sys.path.append(
-    os.path.abspath(
-        os.path.join(os.path.dirname(__file__), '..')
-    )
-)
+PROJECT_ROOT = Path(__file__).resolve().parent[2]
+sys.path.append(str(PROJECT_ROOT))
 
-from constants import (
+from config.constants import (
     EXEMPTIONS,
     QUESTION_REGEX,
     LEFT_MARGIN_THRESHOLD,
@@ -545,17 +544,6 @@ def print_all_questions(all_qs):
         print("-" * 40)
         print(text)
         print(f"{'=' * 40}\n")
-
-
-def flatten(item_list):
-    """
-    Flattens lists
-    """
-    for item in item_list:
-        if isinstance(item, list):
-            yield from flatten(item)
-        else:
-            yield item
 
 
 # =================================================

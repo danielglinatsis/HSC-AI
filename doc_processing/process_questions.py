@@ -3,8 +3,18 @@ import sys
 import pickle
 from pathlib import Path
 
-import doc_extractor
-from constants import PICKLE_PATH
+import exam_extractor
+
+# -------------------------------------------------
+# Allow importing constants from project root
+# -------------------------------------------------
+sys.path.append(
+    os.path.abspath(
+        os.path.join(os.path.dirname(__file__), '..')
+    )
+)
+
+from config.constants import PICKLE_PATH
 
 def process_questions(all_metadata, all_qs):
     out_path = Path("doc_processing/data/all_questions.pkl")
@@ -26,5 +36,5 @@ def load_questions():
     return data["metadata"], data["questions"]
 
 if __name__ == "__main__":
-    all_metadata, all_qs = doc_extractor.all_questions()
+    all_metadata, all_qs = exam_extractor.all_questions()
     process_questions(all_metadata, all_qs)

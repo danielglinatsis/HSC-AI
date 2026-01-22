@@ -1,9 +1,9 @@
 import retrieval_pipeline
 
 from setup import retriever_setup
-from doc_processing import pdf_generator, doc_extractor
+from doc_processing import pdf_generator, exam_extractor
 
-from constants import REVISION_DIR
+from config.constants import REVISION_DIR
 
 # =================================================
 # PRE-RUN SETUP
@@ -15,7 +15,7 @@ def setup():
     Initialises ensemble retriever with processed documents
     """    
     pickle_path = "doc_processing/data/all_questions.pkl"
-    all_metadata, all_qs = doc_extractor.process_exams(pickle_path)
+    all_metadata, all_qs = exam_extractor.process_exams(pickle_path)
 
     retriever = retriever_setup.create_ensemble_retriever(all_metadata, all_qs)
 
