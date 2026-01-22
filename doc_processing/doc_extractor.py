@@ -407,6 +407,23 @@ def process_exams(pickle_path):
     processed_exam_names = set()
 
     # ---------------------------------------------
+    # Scan exam directory
+    # ---------------------------------------------
+    if not os.path.exists("exams"):
+        os.makedirs("exams")
+
+    uploaded_exams = sorted(
+        f for f in os.listdir("exams") if f.endswith(".pdf")
+    )
+
+    # Helper to normalize names for comparison
+    def normalize_name(name):
+        return name.lower().replace("-", " ").replace(".pdf", "").strip()
+
+    # Create a mapping of normalized names to actual filenames
+    filename_map = {normalize_name(f): f for f in uploaded_exams}
+
+    # ---------------------------------------------
     # Load existing pickle
     # ---------------------------------------------
     if os.path.exists(pickle_path):
@@ -416,45 +433,38 @@ def process_exams(pickle_path):
                 all_metadata = data.get("metadata", [])
                 all_qs = data.get("questions", [])
 
-            # Ensure all questions have the 'exam' key
+            # Ensure all questions have the 'exam' key and map to filenames
             for i, exam_questions in enumerate(all_qs):
                 if isinstance(exam_questions, list) and exam_questions:
-                    # Try to find the exam name for this group of questions
-                    exam_name = None
+                    raw_exam_name = None
                     
                     # 1. Check first question
                     first_q = exam_questions[0]
                     if isinstance(first_q, dict):
-                        exam_name = first_q.get("exam") or first_q.get("source")
+                        raw_exam_name = first_q.get("exam") or first_q.get("source")
                     elif hasattr(first_q, "metadata"):
-                        exam_name = first_q.metadata.get("exam") or first_q.metadata.get("source")
+                        raw_exam_name = first_q.metadata.get("exam") or first_q.metadata.get("source")
                     
-                    # 2. If still None, try to get it from metadata if it has a title or something
-                    if not exam_name and i < len(all_metadata):
+                    # 2. If still None, try metadata
+                    if not raw_exam_name and i < len(all_metadata):
                         meta = all_metadata[i]
                         if isinstance(meta, dict):
-                            exam_name = meta.get("title")
+                            raw_exam_name = meta.get("title")
                     
-                    # If we found an exam name, ensure all questions in this group have it
-                    if exam_name:
-                        processed_exam_names.add(exam_name)
+                    if raw_exam_name:
+                        # Try to resolve to an actual filename
+                        norm_name = normalize_name(raw_exam_name)
+                        actual_filename = filename_map.get(norm_name) or raw_exam_name
+                        
+                        processed_exam_names.add(actual_filename)
                         for q in exam_questions:
                             if isinstance(q, dict):
-                                if "exam" not in q: q["exam"] = exam_name
+                                q["exam"] = actual_filename
                             elif hasattr(q, "metadata"):
-                                if "exam" not in q.metadata: q.metadata["exam"] = exam_name
+                                q.metadata["exam"] = actual_filename
+
         except Exception as e:
             print(f"Error loading existing pickle: {e}")
-
-    # ---------------------------------------------
-    # Scan exam directory
-    # ---------------------------------------------
-    if not os.path.exists("exams"):
-        os.makedirs("exams")
-
-    uploaded_exams = sorted(
-        f for f in os.listdir("exams") if f.endswith(".pdf")
-    )
 
     new_exams = [
         f for f in uploaded_exams

@@ -65,17 +65,36 @@ def build_custom_pdf(
     writer = PdfWriter()
     pages_by_exam = group_pages_by_exam(retrieved_docs)
 
-    for exam, pages in pages_by_exam.items():
-        pdf_path = os.path.join(exams_dir, exam)
-        if not os.path.exists(pdf_path):
-            print(f"Warning: {pdf_path} not found, skipping...")
+    # Pre-list exams to handle name mismatches
+    available_exams = {}
+    if os.path.exists(exams_dir):
+        for f in os.listdir(exams_dir):
+            if f.endswith(".pdf"):
+                # Map normalized name to actual filename
+                norm = f.lower().replace("-", " ").replace(".pdf", "").strip()
+                available_exams[norm] = f
+                # Also map actual filename
+                available_exams[f.lower()] = f
+
+    for exam_label, pages in pages_by_exam.items():
+        # Try exact match first
+        pdf_filename = available_exams.get(exam_label.lower())
+        
+        # If not found, try normalized match
+        if not pdf_filename:
+            norm_label = exam_label.lower().replace("-", " ").replace(".pdf", "").strip()
+            pdf_filename = available_exams.get(norm_label)
+
+        if not pdf_filename:
+            print(f"Warning: Could not find a PDF matching '{exam_label}' in {exams_dir}")
             continue
 
+        pdf_path = os.path.join(exams_dir, pdf_filename)
         reader = PdfReader(pdf_path)
         for page_num in sorted(pages):
             if page_num < len(reader.pages):
                 original_page = reader.pages[page_num]
-                labeled_page = create_header_page(original_page, f"Source: {exam}")
+                labeled_page = create_header_page(original_page, f"Source: {pdf_filename}")
                 writer.add_page(labeled_page)
 
     with open(output_path, "wb") as f:

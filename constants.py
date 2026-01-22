@@ -8,7 +8,7 @@ EXAM_DIR = "exams"
 REVISION_DIR = "revision_files"
 PICKLE_PATH = "doc_processing/data/all_questions.pkl"
 
-FAISS_ROOT = "experiments/faiss/indexes"
+FAISS_ROOT = "data/faiss/indexes"
 FAISS_NAME = "corpus_faiss"
 EMBEDDING_MODEL = "sentence-transformers/all-MiniLM-L6-v2"
 
