@@ -15,9 +15,9 @@ def setup():
     Initialises ensemble retriever with processed documents
     """    
     pickle_path = "doc_processing/data/all_questions.pkl"
-    all_metadata, all_qs = exam_extractor.process_exams(pickle_path)
+    data = exam_extractor.process_exams(pickle_path)
 
-    retriever = retriever_setup.create_ensemble_retriever(all_metadata, all_qs)
+    retriever = retriever_setup.create_ensemble_retriever(data["metadata"], data["questions"])
 
     return retriever
 

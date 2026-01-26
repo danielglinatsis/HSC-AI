@@ -11,7 +11,7 @@ from helpers import flatten
 # -------------------------------------------------
 # Allow importing constants from project root
 # -------------------------------------------------
-PROJECT_ROOT = Path(__file__).resolve().parent[2]
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
 sys.path.append(str(PROJECT_ROOT))
 
 from config.constants import (
@@ -227,7 +227,7 @@ def extract_questions(pages):
                     if re.fullmatch(r"[-–—\s\d]+", line_text):
                         continue
 
-                    # Skip extremely short lines
+                    # Skip short lines
                     if len(line_text) < 3:
                         continue
 
@@ -340,7 +340,10 @@ def get_all_questions():
         all_metadata.append(metadata)
         all_qs.append(qs)
 
-    return all_metadata, all_qs
+    return {
+        "metadata": all_metadata,
+        "questions": all_qs
+    }
 
 
 # =================================================
@@ -499,12 +502,14 @@ def process_exams(pickle_path):
         try:
             os.makedirs(os.path.dirname(pickle_path), exist_ok=True)
 
+            data = {
+                "metadata": all_metadata,
+                "questions": all_qs
+            }
+
             with open(pickle_path, "wb") as f:
                 pickle.dump(
-                    {
-                        "metadata": all_metadata,
-                        "questions": all_qs
-                    },
+                    data,
                     f,
                     protocol=pickle.HIGHEST_PROTOCOL
                 )
@@ -517,17 +522,21 @@ def process_exams(pickle_path):
     else:
         print("No new exams found. All documents already processed.")
 
-    return all_metadata, all_qs
+    return {
+        "metadata": all_metadata,
+        "questions": all_qs
+    }
 
 
 # =================================================
 # HELPER FUNCTIONS
 # =================================================
 
-def print_all_questions(all_qs):
+def print_all_questions(data):
     """
     Print all extracted questions
     """
+    all_qs = data.get("questions", [])
     flat_qs = list(flatten(all_qs))
 
     for i, q in enumerate(flat_qs, start=1):
@@ -553,9 +562,9 @@ def print_all_questions(all_qs):
 if __name__ == "__main__":
 
     pickle_file = "doc_processing/data/all_questions.pkl"
-    all_metadata, all_qs = process_exams(pickle_file)
+    data = process_exams(pickle_file)
 
-    print(f"Total exams in system: {len(all_qs)}")
+    print(f"Total exams in system: {len(data['questions'])}")
 
     names = identify_exams(pickle_file)
     print(f"Verified exams in pickle: {names}")

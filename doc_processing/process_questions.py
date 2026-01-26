@@ -3,16 +3,11 @@ import sys
 import pickle
 from pathlib import Path
 
-import exam_extractor
-
 # -------------------------------------------------
 # Allow importing constants from project root
 # -------------------------------------------------
-sys.path.append(
-    os.path.abspath(
-        os.path.join(os.path.dirname(__file__), '..')
-    )
-)
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+sys.path.append(str(PROJECT_ROOT))
 
 from config.constants import PICKLE_PATH
 
@@ -20,21 +15,28 @@ def process_questions(all_metadata, all_qs):
     out_path = Path("doc_processing/data/all_questions.pkl")
     out_path.parent.mkdir(parents=True, exist_ok=True)
 
+    data = {
+        "metadata": all_metadata,
+        "questions": all_qs,
+    }
+
     with out_path.open("wb") as f:
         pickle.dump(
-            {
-                "metadata": all_metadata,
-                "questions": all_qs,
-            },
+            data,
             f, 
             protocol=pickle.HIGHEST_PROTOCOL
         )
+    return data
 
 def load_questions():
     with open(PICKLE_PATH, "rb") as f:
         data = pickle.load(f)
-    return data["metadata"], data["questions"]
+    return data
+
 
 if __name__ == "__main__":
-    all_metadata, all_qs = exam_extractor.all_questions()
-    process_questions(all_metadata, all_qs)
+    data = load_questions()
+    import clean_symbols
+    cleaned_data = clean_symbols.clean_math(data)
+    import helpers
+    helpers.print_question(cleaned_data, "2024-hsc-maths-adv.pdf", 27)
