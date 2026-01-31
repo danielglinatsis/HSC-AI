@@ -1,0 +1,224 @@
+{
+  "General": {
+    "Transformations of trigonometric functions": [
+      "Use graphing applications to explore reflections, translations and dilations of, and confirm that the principles of transformations hold for, the trigonometric functions , and fx=sinxfx=cosxf(x)=tanx",
+      "Apply the principles of transformations to graph transformations of the trigonometric functions , and , describe which transformations have been applied to and determine the domain, range, horizontal translation, vertical translation, dilation factor, period and amplitude when applicable fx=sinxfx=cosxf(x)=tanxy=f(x)",
+      "Solve equations and graphical problems involving transformations of the trigonometric functions , or , using graphing applications or otherwise, within a specified domain fx=sinxfx=cosxf(x)=tanx"
+    ],
+    "Modelling with functions": [
+      "Model and solve problems involving periodic phenomena using transformations of the trigonometric functions , or , without the use of calculus fx=sinxfx=cosxf(x)=tanx",
+      "Model and solve practical problems involving functions and their transformations, within the scope of the Mathematics Advanced course, using graphical and algebraic techniques",
+      "Recognise that logarithmic scales are useful to represent a variable that ranges over a large set of values and explain when a logarithmic scale is suitable",
+      "Use logarithmic scales to model and solve problems involving decibels (dB) in acoustics, seismic scales for earthquakes, magnitudes of stars and the pH scale in chemistry"
+    ]
+  },
+  "Sequences and series": {
+    "Sequences and series": [
+      "Define a sequence as an ordered list of objects",
+      "Use the notation , where is a positive integer, to represent the th term of a sequence annn",
+      "Distinguish between a finite sequence that terminates at its th term, for some whole number , and an infinite sequence that never terminates a1, a2,…, ammm≥1a1, a2,…",
+      "Define the th partial sum of a sequence to be the sum of the first terms of the sequence: , for all whole numbers nSna1, a2,…n Sn=a1+a2+…+ann≥1",
+      "Define a series formally as the sum of the terms of an infinite sequence and use the notation for the series corresponding to the sequence a1+a2+a3+…a1,a2,a3…",
+      "Use summation notation to represent the sum of terms to of a sequence where , aiajj>ik=ijak=ai+ai+1 +ai+2+ … + aj-1+aj"
+    ],
+    "Arithmetic sequences and series": [
+      "Define a sequence to be an arithmetic sequence, or arithmetic progression (AP), if every difference of successive terms is the same where , that is for some constant called the common difference anan-an-1n≥2an-an-1=dd",
+      "Develop the formula for the th term of an AP, where is the first term and , and use it to solve problems an=a+(n-1)dnan≥1",
+      "Recognise that is a linear function of in an AP ann",
+      "Develop the formula for the th partial sum of an AP, and use the formula to solve problems Sn=n2a+ann",
+      "Develop the formula for the th partial sum of an AP, and use the formula to solve problems Sn=n22a+n-1dn",
+      "Apply the formulas for arithmetic sequences and their partial sums to model and solve growth and decay problems involving a quantity that is a linear function of time"
+    ],
+    "Geometric sequences and series": [
+      "Define a sequence to be a geometric sequence, or geometric progression (GP), if every ratio of successive terms is the same where , that is for some non-zero real number called the common ratio ananan-1n≥2an=ran-1r",
+      "Develop the formula for the th term of a GP, where is the first term and , and use it to solve problems an=arn-1nan≥1",
+      "Recognise that is an exponential function of in a GP ann",
+      "Prove by expansion for whole numbers x-1xn-1+xn-2+…+x2+x+1=xn-1 n≥1",
+      "Develop the formula for the sum of the first terms of a GP where , and use this formula to solve problems Sn=a(1-rn)1-rnr≠1",
+      "Examine the behaviour of and as for a GP when anSnn→∞r<1",
+      "Develop the formula for the limiting sum of a geometric series with , and use this formula to solve problems S∞=a1-rr<1",
+      "Apply the formulas for geometric sequences and series to model and solve growth and decay problems where a quantity is an exponential function of time"
+    ]
+  },
+  "Differential calculus": {
+    "Differentiation with exponential functions": [
+      "Apply the rules of differentiation to find the derivative of , where and are constants fx=keaxka",
+      "Use the chain rule to prove , where and are constants and ddxeax+b=aeax+baba≠0",
+      "Prove and use the formula , where is a constant and ddxax=(lna)axaa>0",
+      "Use the chain rule to differentiate functions of the form efx"
+    ],
+    "Differentiation with logarithmic functions": [
+      "Use chain rule on the identity to prove the formula for the derivative of the natural logarithm function where elnx=xddxlnx=1xx>0",
+      "Prove and use the formula , where is a constant and ddxlogax=1xlnaaa>0",
+      "Use the chain rule to differentiate functions of the form lnfx"
+    ],
+    "Differentiation with trigonometric functions": [
+      "Determine the formulas and informally by using the graphs of and and verify with graphing applications ddxsinx=cosx ddxcosx=-sinxy=sinxy=cosx",
+      "Use the rules of differentiation to show that ddx(tanx)=sec2x",
+      "Use the rules of differentiation to find the derivatives of , and cosecxsecxcotx",
+      "Use the chain rule to differentiate functions of the form , and sinfxcosfxtanfx"
+    ],
+    "Using derivatives": [
+      "Apply the product, quotient and chain rules to differentiate functions of the form , or , where and are any of the functions within the scope of the Mathematics Advanced course fxgxfxgxf(g(x))f(x)g(x)",
+      "Solve problems involving equations of tangents and normals to curves involving any of the functions within the scope of the Mathematics Advanced course"
+    ]
+  },
+  "Integral calculus": {
+    "Primitive functions": [
+      "Define a primitive of a function as a function whose derivative and recognise the process of finding the primitive as the reverse of differentiation f(x)F(x)F'x=f(x)",
+      "Recognise that a function whose derivative is everywhere zero is a constant function",
+      "Prove by differentiation that a primitive of is , for all real fx=xnFx=xn+1n+1n≠-1",
+      "Prove by differentiation that if and are primitives of and , and is a constant, then is a primitive of , and is a primitive of F(x)G(x)f(x)g(x)kFx+G(x)fx+g(x)kF(x)kf(x)",
+      "Recognise that primitives of a function are not unique, and that any two primitives of differ by a constant, so that if is a primitive of , the general primitive of is , for some constant f(x)f(x)F(x)f(x)f(x)Fx+CC",
+      "Determine the primitive of a given function , where is a sum of functions of the form for all real f(x)f(x)kxnn≠-1",
+      "Determine the primitive function for functions of the form , for all real , where and are constants fx=ax+bnn≠-1ab",
+      "Use algebraic manipulation to express given functions in forms suitable for determining primitive functions",
+      "Determine , given and an initial condition where and are constants f(x)f'(x)f(a)=bab"
+    ],
+    "The definite integral": [
+      "Examine for a function , which indicates the rate of change of a quantity, the meaning of , where the interval is divided into subintervals of length , and describe as an estimate of the total change in that quantity over the interval f(x)abfxΔxa≤x≤bΔxabfxΔxa≤x≤b",
+      "Consider the definite integral as , noting that this implies that the result of a definite integral will be negative when throughout the interval abf(x)dx=limΔx→0abfxΔxfx≤0a≤x≤b",
+      "Define informally that a function is continuous on the interval if it can be drawn between the two endpoints of the interval without taking the pen off the paper a≤x≤b",
+      "Graph the region between the continuous function and the -axis, where on the interval y=fxxfx≥0a≤x≤b",
+      "Use a graphing application to compare different methods of approximating the area, , of the region between the continuous function and the -axis, where on the interval , by summing the areas of trapezia or rectangles each of width and approximate height for any lying in its base, and observe the effect on the precision of the approximation of as the number of subintervals of increases, that is as Ay=f(x)xfx≥0a≤x≤bΔx=b - anfxxAna≤x≤bΔx→0",
+      "Evaluate the definite integral by calculating areas using geometrical formulas, where the shape of allows such calculations, in cases where throughout , throughout or where changes sign in the interval ∫abfxdxf(x)fx≥0 a≤x≤bfx≤0 a≤x≤bf(x)a≤x≤b"
+    ],
+    "The Fundamental Theorem of Calculus": [
+      "Consider the function defined by and use a graphing application to recognise that is a primitive of Ax=axftdtA(x)f(x)",
+      "Recognise the Fundamental Theorem of Calculus as for a continuous function on the interval where is any primitive of abfxdx=F(x)ba=Fb-Fafa≤x≤bF(x)fx"
+    ],
+    "Indefinite integrals": [
+      "Use the notation for the general primitive of called the indefinite integral of , so that , for some constant , where is any primitive of ∫fxdxfx,fx∫fxdx=Fx+CCF(x)f(x)",
+      "Recognise integration as the process of finding the indefinite integral of a function",
+      "Use the formula for real ∫xndx=1n+1xn+1+Cn≠-1",
+      "Use the identities and for primitives ∫fx+gxdx=∫f(x)dx+∫g(x)dx∫kf(x)dx=k∫f(x)dx",
+      "Prove by differentiation, and apply , where is a function of , or , for real ∫undudxdx=1n+1un+1+Cux∫f'xf(x)ndx=1n+1f(x)n+1+Cn≠-1"
+    ],
+    "Integration with exponential functions": [
+      "Establish and use the formula ∫exdx=ex+C",
+      "Establish and use the formula , where and are constants and ∫eax+bdx=1aeax+b+Caba≠0",
+      "Establish and use the formula , where is a constant and ∫axdx=axln a+Caa>0",
+      "Establish and use , where is a function of , or ∫eududxdx=eu+Cux∫f'xefxdx=efx+C",
+      "Find primitives of functions involving exponential functions"
+    ],
+    "Integration with logarithmic functions": [
+      "Derive and use the formula where ∫1xdx=ln|x|+Cx≠0",
+      "Establish and use the formula , where and are constants and ∫1ax+bdx=1alnax+b+Caba≠0",
+      "Establish and use , where is a function of , or , on a domain where ∫u'udx=lnu+Cux∫f'xfxdx=ln|f(x)|+Cfx≠0"
+    ],
+    "Integration with trigonometric functions": [
+      "Establish and use the formulas , and ∫sinxdx=-cosx+C∫cosxdx=sinx+C∫sec2xdx=tanx+C",
+      "Establish and use indefinite integrals of the form , where and are constants and , and , and ∫f(ax+b)dxaba≠0fx=sinxfx=cosxfx=sec2x",
+      "Determine indefinite integrals of the form , and ∫f'(x)sinfxdx∫f'(x)cosf(x)dx∫f'(x)sec2f(x)dx"
+    ],
+    "Areas and the definite integral": [
+      "Apply , where is a primitive of , to calculate definite integrals and solve related theoretical problems involving functions within the scope of the Mathematics Advanced course abfxdx=Fb-FaF(x)f(x)",
+      "Describe, in the case where for all values of in the interval , the area bounded by the graph of the continuous function , the -axis and the lines and , as fx≥0xa≤x≤by=f(x)xx=ax=babf(x)dx",
+      "Recognise, in the case where for all values of in the interval , the area bounded by the graph of the continuous function , the -axis and the lines and , as or fx≤0xa≤x≤by=f(x)xx=ax=babf(x)dx-abf(x)dx",
+      "Conclude, for a continuous function on the interval , that (area of regions between curve and -axis lying above the -axis) (area of regions between curve and the -axis lying below the -axis) y=f(x)a≤x≤babf(x)dx=xx-xx",
+      "Use definite integrals to solve problems involving the areas of regions bounded by the graph of the continuous function , the -axis and the lines and , in cases where throughout , throughout or where changes sign in the interval , with or without the graph provided y=f(x)xx=ax=bfx≥0 a≤x≤bfx≤0 a≤x≤bf(x)a≤x≤b",
+      "Use definite integrals to solve problems involving the areas of regions bounded by the graph of the continuous function , the -axis and the lines and , in cases where throughout , throughout or where changes sign in the interval with or without the graph provided y=f(x)yy=ay=bx≥0 a≤y≤bx≤0 a≤y≤bxa≤y≤b",
+      "Use the fact that the graphs of and are reflections of each other in the line to solve problems involving areas between the -axis or -axis and a curve involving either an exponential or logarithmic function y=axy=logaxy=xxy",
+      "Recognise and use the result, where is continuous on the interval , for all such that f(x)a≤x≤cabfxdx+bcfxdx=acfxdxca≤b≤c",
+      "Define and use the result , where is continuous on the interval abfxdx=-bafxdxf(x)a≤x≤b",
+      "Recognise and use symmetry, particularly odd and even functions, to simplify and solve integration problems",
+      "Use the Trapezoidal rule to approximate integrals",
+      "Use an online computational application to evaluate definite and indefinite integrals involving functions within and beyond the scope of the Mathematics Advanced course",
+      "Model and solve practical problems involving integrals and areas of regions bounded by a curve and the -axis, or by a curve and the -axis, involving functions within the scope of the Mathematics Advanced course xy"
+    ]
+  },
+  "Applications of calculus": {
+    "Turning points, inflections and curve-sketching": [
+      "Define a function to be differentiable at if exists, that is if there is a non-vertical tangent to the curve at the point and recognise that if is differentiable at then it is continuous at fxx=alimh→0fa+h-fahPa,fafxx=ax=a",
+      "Identify any values of where a function is continuous, but not differentiable, given either the equation of the function or its graph x",
+      "Use repeated differentiation to find second derivatives of a function , denoting them by or or y=f(x)f''(x)d2ydx2y''",
+      "Analyse the stationary points of a function by testing values for , then classify the stationary points as local minima or local maxima where gradients change around the point, or horizontal points of inflection where gradients have the same sign on both sides of the point f'(x)",
+      "Interpret the second derivative as the gradient function of the first derivative , and deduce that if the curve is concave up and if the curve is concave down y''y'y''>0y''<0",
+      "Define a point of inflection on a curve as a point where the concavity changes",
+      "Analyse the value of either side of the roots of , and use the resulting concavities to identify which zeroes of are points of inflection f''(x)f''x=0f''x",
+      "Use the second derivative to classify a stationary point as a local maximum, local minimum or a horizontal point of inflection",
+      "Graph a function by determining local maxima and minima and points of inflection, horizontal and non-horizontal, considering any even or odd symmetry, the domain, any vertical asymptotes or other discontinuities, and where applicable, the behaviour of a function as x→±∞",
+      "Graph and for a function , given only a graph of y=f'(x)y=f''(x)y=f(x)y=f(x)"
+    ],
+    "Optimisation": [
+      "Define a global maximum of a function to be a point on the graph where , for all in the domain, and define a global minimum similarly f(x)Pa,fafx≤f(a)x",
+      "Examine whether any discontinuities or endpoints of the domain on which is being considered are points of maxima or minima f(x)",
+      "Model optimisation problems in a variety of contexts by defining variables, noting domain restrictions if necessary, and establishing functions to represent the relationship between variables",
+      "Solve optimisation problems by using calculus to find local and global maxima and minima of differentiable functions, checking discontinuities of and endpoints of the domain if applicable f'(x)",
+      "Formulate conclusions to optimisation problems by evaluating solutions given the constraints of the domain"
+    ],
+    "Rates of change": [
+      "Use differentiation to find and interpret the first and second derivatives, and , in practical problems where a quantity is a function of time dQdtd2Qdt2Qt",
+      "Use integration to solve practical problems on the rate of change of a quantity where or is given as a function of time , together with sufficient initial conditions Q,dQdtd2Qdt2t",
+      "Describe and examine the graphs of practical situations where the rate of change of a quantity is proportional to the quantity",
+      "Explain that if the rate of change of a positive quantity over time is proportional to the size of , then this may be represented by where is the constant of proportionality, and if the quantity is increasing at a rate proportional to the value of at time , while if the quantity is decreasing at a rate proportional to the value of at time QtQdQdt=kQkk>0QQtk<0QQt",
+      "Verify by substitution that the function satisfies the relationship with being the initial value of Q=AektdQdt=kQAQ",
+      "Recognise that the equation where , and its solution represent exponential growth when and exponential decay when dQdt=kQQ>0Q=Aektk>0k<0",
+      "Graph the function , where and and and , with and without graphing applications, and identify any asymptotes Q=Aektk>0k<0A>0A<0",
+      "Model and solve growth and decay problems in various contexts using , and the graph of for , and justify conclusions in the context of the problem dQdt=kQQ=AektQ=Aektt≥0",
+      "Determine the velocity and acceleration of a particle moving in a straight line given its displacement from a point as a function of time, and use the notation or to represent acceleration d2xdt2x",
+      "Solve problems relating to the motion of a particle moving in a straight line, using both differentiation and integration to connect the concepts of displacement, velocity and acceleration"
+    ]
+  },
+  "Random variables": {
+    "Discrete random variables": [
+      "Use the relative frequencies of discrete random variable datasets to estimate the probabilities that the random variable takes each of its values, and explain why these estimated probabilities add to 1 X",
+      "Denote the probability that the discrete random variable takes the value by , or by if the discrete random variable is understood XxP(X=x)P(x)X",
+      "Define a discrete probability distribution to be the set of values taken by a discrete random variable , together with the probabilities that is the outcome of the experiment xXP(x)x",
+      "Define a discrete random variable to be uniformly distributed if it has finitely many values, all with the same probability, and use it to model random phenomena with equally likely outcomes",
+      "Recognise the mean, or expected value, or , of a discrete random variable as a measure of centre for its distribution μEXX",
+      "Generate and use the formulas and for the random variable , where is the variance and is the standard deviation of the distribution EX=μ=ΣxP(x)VarX=σ2=Σx-μ2Px=Σx2Px-μ2XVarXσ",
+      "Recognise that the variance is an expected value because VarX=EX-μ2",
+      "Generate a probability distribution for a given discrete random variable and represent the probability distribution in graphical and tabular form",
+      "Solve problems involving probabilities, expectation and variance of discrete random variables"
+    ],
+    "Continuous random variables": [
+      "Estimate the probability that a continuous random variable falls in some interval using relative frequencies and histograms obtained from data",
+      "Recognise that the probability of a particular value for a continuous random variable is 0 and hence that since when is a continuous random variable Pa<X<b=Pa≤X<b=Pa<X≤b=Pa≤X≤bPX=a=PX=b=0X",
+      "Define the cumulative distribution function (CDF), , as the probability of a random variable, , having values less than or equal to , so and FxXxFx=PX≤xPa≤x≤b=Fb-F(a)",
+      "Recognise that the cumulative distribution function, , is non-decreasing for all in its domain, and graph cumulative distribution functions, given a formula for , with and without graphing applications F(x)xF(x)",
+      "Define a probability density function (PDF), , for a random variable with cumulative distribution function as and recognise that fxXFxfx=F'(x)Pa<X<b=abf(x)dx",
+      "Recognise the properties of a probability density function: for all in the domain of and if the domain of is , or if the domain of is all real f(x)≥0xfx,abf(x)dx=1f(x)[a,b]-∞∞f(x)dx=1f(x)x",
+      "Apply the properties of a probability density function to solve problems and justify conclusions",
+      "Find the mode from a given probability density function",
+      "Obtain the cumulative distribution function using the formula where is a given probability density function defined on the interval Fx=axftdtfxa,b",
+      "Determine and use the probability density function for a continuous uniform distribution for a random variable taking values in the interval fx=1b-aX[a,b]",
+      "Use a cumulative distribution function to calculate the median and quartiles for a continuous random variable",
+      "Find the probability density function from a given cumulative distribution function",
+      "Generate the expression for the expected value of a continuous random variable, , where the probability density function is defined on the interval EX=μ=abxfxdxfx[a,b]",
+      "Generate the expression for the variance of a continuous random variable, , where the probability density function is defined on the interval VarX=EX2-μ2=abx2fxdx-μ2fx[a,b]",
+      "Evaluate the expected value and the variance of a continuous random variable, where the probability density function is defined on the interval , that involve integration of functions within the scope of the Mathematics Advanced course fx[a,b]",
+      "Evaluate the expected value and the variance of a continuous random variable, where the probability density function is defined on the interval , that involve integration of functions beyond the scope of the Mathematics Advanced course using an online computational application fx[a,b]"
+    ],
+    "The normal distribution": [
+      "Identify the normal distribution as a continuous probability distribution that is used to model many naturally occurring phenomena",
+      "Identify the graph of the probability density function of a normal distribution, the normal curve, as an ‘ideal’ bell-shaped curve, symmetrical about its mean which is equal to its mode and median, and as having most values concentrated about the mean",
+      "Identify contexts that can be approximately modelled by a normal random variable",
+      "Use the notation to represent a normally distributed random variable that has mean and standard deviation X∼Nμ,σ2μσ",
+      "Represent probabilities associated with the normal distribution by areas of shaded regions under the normal curve, which may extend to ±∞",
+      "Apply the empirical rule to make judgements and solve problems involving probabilities of normally distributed data: that for normal distributions, approximately 68% of data lie within one standard deviation of the mean, approximately 95% within two standard deviations of the mean and approximately 99.7% within three standard deviations of the mean",
+      "Use graphing applications to explore the normal distribution, graph the probability density function , verify the empirical rule and graph the cumulative distribution function fx=1σ2πe-(x-μ)22σ2",
+      "Recognise features of the normal curve, and identify the global maximum and points of inflection",
+      "Distinguish between a standard normal distribution with mean 0 and standard deviation 1, and the non-standard normal distribution with mean and standard deviation μσ",
+      "Define the -score, or standardised score, by the formula , where is the mean and is the standard deviation, and is an observed value of a random variable zz=x-μσμσx",
+      "Interpret the -score as the number of standard deviations a score lies above or below the mean z",
+      "Use -scores to compare scores from different sets of data and justify conclusions z",
+      "Use -scores to identify probabilities of events less or more extreme than a given outcome and solve problems using tables for the standard normal distribution z",
+      "Solve problems involving finding the mean or standard deviation of a normal random variable given the probability of an event less or more extreme than a given outcome",
+      "Use -scores to make judgements related to probabilities of certain events or given sets of data assuming an underlying normal distribution z"
+    ]
+  },
+  "Financial mathematics": {
+    "Reducing balance loans": [
+      "Recognise a reducing balance loan algebraically as a compound interest loan with periodic repayments",
+      "Examine the effect of varying the interest rate and repayment amount on the time taken to repay a loan, with or without digital tools or by using a given graph",
+      "Solve problems that involve reducing balance loans by calculating the total amount paid, equal periodic repayments, the amount still owing and the time taken to repay the loan"
+    ],
+    "Annuities": [
+      "Identify an annuity as either an investment account with regular, equal contributions and interest compounding at the end of each period, or as a single sum investment from which regular equal withdrawals are made",
+      "Define and model the future value of an annuity as the sum of all the payments, together with the interest they have earned",
+      "Examine the effect of varying the amount initially invested, the value of the periodic payment, the interest rate and the duration of the annuity on the total value of the investment, using digital tools",
+      "Solve problems involving annuities in which payments are made at the end of each time period and the future value of an annuity is calculated at the end of one of these periods using the formula for the sum of the first terms of a geometric sequence"
+    ]
+  }
+}

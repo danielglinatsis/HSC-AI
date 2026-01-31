@@ -1,0 +1,271 @@
+{
+  "General": {
+    "Algebraic techniques": [
+      "Use index laws to simplify expressions and solve problems involving positive, negative, zero or fractional indices",
+      "Expand, factorise and simplify algebraic expressions",
+      "Simplify expressions involving algebraic fractions",
+      "Expand and simplify expressions involving surds",
+      "Identify the conjugate of , and rationalise the denominators of expressions of the form and , where , , and are positive rational numbers a±bab±ca±db±cabcd",
+      "Solve quadratic equations by factorisation, completing the square and using the quadratic formula where , and are real numbers and ax2+bx+c=0x=-b±b2-4ac2aabca≠0",
+      "Define the discriminant as and use it to solve problems involving the number of real roots of a quadratic equation and determine the conditions for roots to be equal, distinct, real or rational Δ=b2-4ac"
+    ],
+    "Introduction to functions and relations": [
+      "Describe a relation between two sets as an association between the elements of one set and the elements of the other set",
+      "Define a real function of a real variable as a relation where each element of a given set is associated with exactly one element of the second set fxxy",
+      "Recognise that a relation is a rule which can be represented by an algebraic formula, a table of values, a set of ordered pairs or a graph x,y",
+      "Use the notation to identify the unique value of associated with when working with functions, and refer to it as the value of at fxyxfx",
+      "Refer to in a function as the independent variable of the function, and refer to as the dependent variable xy=f(x)y",
+      "Substitute numeric and algebraic expressions into the formulas of functions",
+      "Apply the vertical line test on the graph of a relation to determine whether it represents a function",
+      "Define the domain of a function as the set of real numbers on which is defined ff",
+      "Define the range of a function as the set of values of obtained as varies over the domain of ff(x)xf",
+      "Refer to a value in the domain of a function at which the function is 0 as a zero of the function",
+      "Recognise that the -intercepts of the graph of are its zeroes, the solutions of , and that the -intercept is xy=fxfx=0yf0"
+    ],
+    "Linear functions": [
+      "Determine the equations of straight lines in gradient–intercept form with gradient and -intercept y=mx+cmyc",
+      "Determine the equations of straight lines in general form , where , and are constants ax+by+c=0abc",
+      "Determine the equation of a straight line passing through a point with gradient using the point–gradient formula x1,y1my-y1=mx-x1",
+      "Determine the equation of a straight line passing through two points and by calculating its gradient using the formula x1,y1x2,y2mm=y2 - y1x2 - x1",
+      "Determine the -intercept and -intercept of a straight line given its equation xy",
+      "Choose and apply appropriate techniques to graph a straight line given its equation",
+      "Find the equation of a line that is parallel or perpendicular to a given line",
+      "Solve linear inequalities and graph the solution on a number line"
+    ],
+    "Quadratic and cubic functions": [
+      "Identify the -intercepts of a parabola whose quadratic function is expressed in factored form",
+      "Use the discriminant to determine the number of -intercepts on a parabola and justify its position in relation to the -axis xx",
+      "Show by completing the square on the general quadratic that the axis of symmetry is where , and are constants y=ax2+bx+cx=-b2aabc",
+      "Identify the axis of symmetry and vertex of a parabola by completing the square on its quadratic function",
+      "Choose and apply appropriate techniques to graph a parabola of the form by identifying its -intercepts if they exist, its -intercept, its axis of symmetry using and its vertex y=ax2+bx+cxyx=-b2a",
+      "Find the equation of a parabola given sufficient graphical features",
+      "Use the fact that two quadratic functions are equal for all values of if and only if the corresponding coefficients are equal to solve related problems x",
+      "Recognise that solving for some constant corresponds to finding the -coordinate(s) of the intersection of the graphs and fx=kkxy=fxy=k",
+      "Solve problems by finding the solution to simultaneous equations involving a linear and a quadratic function, or two quadratic functions, both algebraically and graphically",
+      "Solve quadratic inequalities",
+      "Recognise and graph cubic functions of the form and , where , , and are constants and f(x)=kx3fx=kx-ax-bx-cabckk≠0"
+    ],
+    "Reciprocal functions": [
+      "Graph functions of the form , where is a constant and , and identify their hyperbolic shape and their asymptotes f(x)=kxkk≠0",
+      "Describe the behaviour of as and fx=kxx→∞x→-∞"
+    ],
+    "Constructing and using functions": [
+      "Construct and use linear functions to model and solve problems in real-world situations, identifying the independent and dependent variables and any restrictions on these variables, and justify conclusions in the context of the problem",
+      "Use linear inequalities to model and solve problems in real-world situations, and justify conclusions in the context of the problem",
+      "Solve practical problems involving a pair of simultaneous linear equations both algebraically and graphically, with and without graphing applications, and justify conclusions in the context of the problem",
+      "Construct and use simultaneous equations to model and solve a problem where cost and revenue are represented by linear equations, identify and analyse the break-even point, and justify conclusions in the context of the problem",
+      "Model and solve practical problems involving quadratic functions and justify conclusions in the context of the problem"
+    ],
+    "Direct and inverse variation": [
+      "Develop models of the form , where is a non-zero constant, from descriptions of situations in which one quantity varies directly with another y=kxnk",
+      "Develop the model , where is a non-zero constant, from descriptions of situations in which one quantity varies inversely with another y=kxnk",
+      "Evaluate in the equations and , given one pair of values for the variables, and use the resulting formula to find other values of the variables ky=kxny=kxn",
+      "Analyse and solve problems involving direct and inverse variation"
+    ],
+    "Circles and semicircles": [
+      "Derive the equation of a circle of radius with centre at the origin by considering Pythagoras’ theorem",
+      "Graph circles of the form from their equations x2+y2=r2",
+      "Determine the equation of a circle of the form given its graph x2+y2=r2",
+      "Identify and graph the semicircles , , and y=r2-x2y=-r2-x2x=r2-y2x=-r2-y2"
+    ],
+    "Properties of functions, relations and graphs": [
+      "Extend the definitions of domain and range to relations",
+      "Recognise domains and ranges of functions and relations given in interval notation, as inequalities and as worded descriptions",
+      "Determine and describe the domain and range of functions and relations, using interval notation, inequalities or worded descriptions",
+      "Define a function to be even if its graph is unchanged under reflection in the -axis, and odd if its graph is unchanged under rotation of about the origin y180°",
+      "Develop and use the tests that a function is odd if and a function is even if f(x)f-x=-f(x)f(x)f-x=f(x)",
+      "Solve problems involving even and odd functions",
+      "Use the composite function , where the output of becomes the input of fgxgxfx",
+      "Determine the equations of composite functions"
+    ],
+    "Piecewise-defined functions": [
+      "Interpret piecewise-defined functions, where the function is defined differently in different parts of the domain",
+      "Graph piecewise-defined functions involving functions covered in the scope of the Mathematics Advanced course, test if they are even or odd, and determine the domain and range",
+      "Define informally that a function is continuous at a point if the curve can be drawn through the point without lifting the pen off the paper",
+      "Identify points where piecewise-defined functions and other functions are not continuous",
+      "Define a discontinuity of a function informally as a point where the function is not continuous"
+    ],
+    "Absolute value functions": [
+      "Define the absolute value of a number , also known as the magnitude of , to be the distance from the origin to on the number line xxxx",
+      "Establish and use the piecewise definition x=x, for x≥0,-x, for x<0",
+      "Show using numerical substitutions that and use the result x2=x",
+      "Graph the function , describe its symmetry, and identify its domain and range y=x",
+      "Graph with and without graphing applications, and identify its symmetry, domain and range y=ax+b",
+      "Solve absolute value equations of the form algebraically and graphically ax+b=k"
+    ]
+  },
+  "Trigonometry and measure of angles": {
+    "Trigonometry with acute angles": [
+      "Use Pythagoras’ theorem to find the exact sine, cosine and tangent ratios for angles of , and 30°45°60°",
+      "Apply trigonometry to solve problems involving right-angled triangles in two dimensions, true and compass bearings, and angles of elevation and depression"
+    ],
+    "Trigonometry with angles of any magnitude": [
+      "Represent angles of any magnitude using rays from the origin in the Cartesian plane and describe how one ray represents infinitely many angles",
+      "Develop the definitions , and , where is a point on the circle of radius , centred at the origin, and is the angle between the positive -axis and the radius drawn to this point cosθ=xrsinθ=yrtanθ=yx(x,y)rθx",
+      "Use the definitions , and to evaluate , and where is a multiple of , and identify the values of for which these ratios are undefined cosθ=xrsinθ=yrtanθ=yxsinθcosθtanθθ90°θ",
+      "Extend and apply the definitions , and for angles of any magnitude cosθ=xrsinθ=yrtanθ=yx",
+      "Identify the related angle of an angle of any magnitude, excluding multiples of , as the acute angle between the ray and the -axis and obtain the values of the trigonometric functions of an angle of any magnitude from the trigonometric functions of the related angle 90°x",
+      "Develop and use the trigonometric ratios for angles that can be written in the form , and , where θ=180°±Aθ=360°-A0°<A<90°",
+      "Establish and use the results , and cos(-θ)=cosθsin(-θ)=-sinθtan(-θ)=-tanθ",
+      "Examine the proof of the sine rule , cosine rule and the area of a triangle formula for a given triangle asinA=bsinB =csinCc2=a2+b2-2abcosCA=12absinCABC",
+      "Use graphing applications or geometric construction to examine the ambiguous case of the sine rule, in which there are two possible solutions for an angle, and the condition for it to arise",
+      "Apply the sine rule, cosine rule and formula for the area of a triangle to solve problems where angles are measured in degrees, or degrees and minutes"
+    ],
+    "Radians": [
+      "Recognise that both ratios and are equal to where is the angle at the centre of a circle subtended by the arc arc lengthcircumferencearea of sectorarea of circleθone revolutionθ",
+      "Define the angle size of in radian measure as the ratio θarc lengthradius of a circle",
+      "Explain why radians and 360°=2π1 radian=180π degrees",
+      "Convert between degrees and radians and find the exact sine, cosine and tangent ratios for integer multiples of and π6π4",
+      "Graph , and over domains given in degrees or radians, showing intercepts with the -axis and -axis and any asymptotes, determine their domains and ranges, and period and amplitude where appropriate, and whether each is even or odd or neither y=sin xy=cos xy=tan xxy",
+      "Establish and use the formula for the length of arc subtending an angle in radians at the centre of a circle of radius l=rθlθr",
+      "Prove and use the formula for the area of a sector with angle in radians at the centre of a circle of radius A=12r2θθr",
+      "Solve problems involving arc lengths and areas of major and minor sectors and segments"
+    ]
+  },
+  "Trigonometric identities and equations": {
+    "General": [
+      "Define the trigonometric functions , and for acute angles using ratios of sides in a right-angled triangle secθcosecθcotθθ",
+      "Find the exact secant, cosecant and cotangent ratios for angles of , and 30°45°60°",
+      "Justify the values of , and at and by examining the ratios of sides in a right-angled triangle as tends to and secθcosecθcotθ0°90°θ0°90°",
+      "Develop the definitions , and using a circle of radius centred at the origin secθ=rxcosecθ=rycotθ=xyr",
+      "Establish the reciprocal ratios , , and , identifying the angles to be excluded in each identity secA=1cosAcosecA=1sinAcotA=1tanA",
+      "Determine the exact value of the secant, cosecant and cotangent ratios for angles that are integer multiples of and , if they exist π6π4",
+      "Establish the identities and , identifying the angles to be excluded in each identity tanθ=sinθcosθcotθ=cosθsinθ",
+      "Prove the complementary angle identities , , , , and identifying the angles to be excluded in each identity sin(90°-θ)=cosθcos(90°-θ)=sinθtan(90°-θ)=cotθcot(90°-θ)=tanθsec(90°-θ)=cosecθcosec(90°-θ)=secθ",
+      "Evaluate trigonometric expressions using angles of any magnitude and complementary angle identities",
+      "Solve equations involving trigonometric ratios of angles, specified in degrees or radians, on a restricted domain",
+      "Prove the Pythagorean identity , and the identities and cos2x+sin2x=11+tan2x=sec2x1+cot2x=cosec2x",
+      "Apply trigonometric identities to solve problems, simplify expressions and prove further trigonometric identities using substitution and/or reduction to and sinxcosx",
+      "Solve problems involving trigonometric equations, including those that reduce to quadratic equations, on a restricted domain"
+    ]
+  },
+  "Introduction to differentiation": {
+    "Estimating change": [
+      "Define the average rate of change of with respect to for a function over the domain as , that is , and recognise as the gradient of the secant through and on the graph of yxy=fx[a,b]ΔyΔx=change in ychange in xΔyΔx=fb-f(a)b-afb-f(a)b-aa,fab,fby=f(x)",
+      "Recognise speed as a rate of change of distance with respect to time",
+      "Use the definition for average rate of change to determine the average speed of an object from a given distance–time graph",
+      "Describe the difference between the average speed of an object and its instantaneous speed",
+      "Determine that the instantaneous speed of an object at time can be approximated by the average speed between its position at time and its position some time later, and explain how this approximation can be improved tt",
+      "Relate the instantaneous speed of an object to the gradient of the tangent at that point on its distance–time graph",
+      "Estimate the instantaneous speed of an object from its distance–time graph",
+      "Recognise when modelling with a linear function that its gradient is the rate of change and determine the rate of change for linear functions in practical situations",
+      "Recognise when modelling with a non-linear function that the rate of change is not constant and is represented by the gradient of the tangent to the curve at each point on the curve",
+      "Estimate the instantaneous rate of change of a non-linear function at a given point from a given graph of a practical situation"
+    ],
+    "The derivative": [
+      "Examine the gradient of a curve at a point on the curve using graphing applications",
+      "Approximate the gradient of a curve at a point by considering the gradient of the secant through and as the magnitude of approaches zero, using graphing applications or a spreadsheet f(x)=xnPc,fcPQc+h,fc+hh",
+      "Infer that is the gradient of and verify the result using graphing applications nxn-1fx=xn",
+      "Define , for any function and any value , to be the gradient of the tangent to the curve at the point if the tangent exists and is not vertical f'(x)f(x)xy=f(x)Px,fx",
+      "Refer to as the derivative of or the gradient, or derived, function of f'(x)f(x)f(x)",
+      "Define differentiation as the process of finding the derivative of a function",
+      "Find derivatives of constant and linear functions",
+      "Define the derivative of the function from first principles, as the limiting value of the gradient of the secant as approaches zero, when this limiting value exists, and use the notation fxfx+h-fxhhf'x=limh→0fx+h-fxh",
+      "Use first principles to find the derivative of quadratic functions"
+    ],
+    "Calculations with the derivative": [
+      "Use the notation and for the derivative of when is a function of dydxy'yyx",
+      "Use the notation and for the derivative of a function ddxfxf'(x)fx",
+      "Use the formula for all real values of ddx(xn)=nxn-1n",
+      "Apply the fact that the derivative of a sum is the sum of the derivatives: , and the derivative of a multiple of a function is the multiple of its derivative: ddxfx+gx=f'x+g'(x)ddx(k⋅fx)=k⋅f'(x)",
+      "Use the rules for differentiation to find equations of tangents and normals to a curve at points on the curve",
+      "Find points on a curve where the tangent or normal has a given gradient",
+      "Examine and use the relationship between the angle of inclination of a line or tangent to a curve, with the positive -axis, and the gradient, , of that line or tangent, and establish that θ,xmtanθ=m",
+      "Apply the product rule: if , where and are both differentiable functions of , then or if for differentiable functions and then y=uvuvxdydx=udvdx+vdudxh(x)=f(x)g(x)f(x)g(x)h'x=fxg'x+f'xg(x)",
+      "Apply the quotient rule: if , where and are both functions of then or if then y=uvuvx,dydx=vdudx-udvdxv2hx=fxgxh'x=gxf'x-fxg'x[gx]2",
+      "Apply the chain rule: if is a differentiable function of , and is a differentiable function of , then or if for differentiable functions and then yuuxdydx = dydu×dudxhx=fgxf(x)g(x)h'x=f'gxg'x",
+      "Identify and apply the product, quotient or chain rule, or a combination of the rules, as appropriate to differentiate a given function"
+    ],
+    "Graphical applications of the derivative": [
+      "Interpret as increasing at when and decreasing at when fxx=cf'c>0x=cf'c<0",
+      "Describe the behaviour of a function at a point as stationary when the tangent at the point is parallel to the -axis, and recognise that is stationary at when xfxx=cf'c=0",
+      "Graph for a given graph of a function y=f'(x)y=f(x)",
+      "Numerically estimate the value of the derivative at a point on the graph of a power of , with and without the use of digital tools x",
+      "Identify stationary points on the graph of a cubic function, and the values of for which the function is increasing and/or decreasing, by first calculating the derivative, and justify conclusions x"
+    ],
+    "The derivative as a rate of change": [
+      "Interpret as the instantaneous rate of change of the function at f'(c)f(x)x=c",
+      "Define and distinguish between displacement and distance and between velocity and speed",
+      "Use graphs of functions and their derivatives, without the use of algebraic techniques, to describe and interpret physical phenomena",
+      "Use the notation or to represent the velocity of a particle with displacement from a point as a function of time dxdtxxt",
+      "Solve problems by determining the velocity of a particle moving in a straight line, given its displacement from a point as a function of time"
+    ]
+  },
+  "Exponential and logarithmic functions": {
+    "Exponential functions": [
+      "Graph the exponential functions and for constants and where , and , and identify its asymptote, -intercept, domain and range y=kaxy=ka-xaka>0a≠1k≠0y",
+      "Describe the behaviour of and as and y=kaxy=ka-xx→∞x→-∞",
+      "Examine the gradient of the tangent to the curve at its -intercept for varying values of , and verify using graphing applications that there is a unique number ..., such that the gradient of the tangent to at is 1, and call this number Euler’s number y=axyae≈2.71828182845y=exx=0e",
+      "Examine the gradient function of with graphing applications and identify that the gradient function is , for some constant depending only on y=axddxax=kaxka",
+      "Conclude that Euler’s number, , is a unique number such that , that is, is its own derivative eddxex=exex"
+    ],
+    "Logarithmic functions": [
+      "Define the logarithm of a number , where , to any positive base as the index to which is raised to give yy>0aay",
+      "Use the notation for the logarithm of to the base logayya",
+      "Define the natural logarithm lna=logea",
+      "Use digital tools to determine rational and irrational values of exponential and logarithmic expressions",
+      "Explain that is equivalent to for and , and use the equivalence to solve equations of the form , for y=axx=logaya>0 a≠1ax=ba>0",
+      "Recognise and use the logarithmic properties: for all real , where logaax=xxalogax=xx>0",
+      "Derive the laws of logarithms from the laws of indices , and logam+logan=logamnlogam-logan=logamnlogamn=nlogam",
+      "Justify the logarithmic results , and logaa=1loga1=0loga1x=-logax",
+      "Apply the logarithmic laws and results to simplify expressions, solve equations and prove results, using digital tools where necessary",
+      "Prove the change of base rule and use it to solve problems logax=logbxlogba",
+      "Graph the logarithmic function for and y=logaxa>0a≠1",
+      "Use graphing applications to identify the graphs of and as reflections of each other in the line , in cases where and y=axy=logaxy=xa>10<a<1"
+    ]
+  },
+  "Graph transformations": {
+    "General": [
+      "Establish using graphing applications that replacing by in the equation of a graph corresponds to the reflection of the graph in the -axis, and that replacing by corresponds to a reflection in the -axis x-xyy-yx",
+      "Establish using graphing applications that replacing by in the equation of a graph corresponds to a horizontal translation of a graph by , that replacing by corresponds to a vertical translation by , and recognise that the sign of and determines the direction of the translation xx-aayy-bbab",
+      "Describe a horizontal dilation as a stretch from the -axis and a vertical dilation as a stretch from the -axis yx",
+      "Establish using graphing applications that replacing by in the equation of a graph corresponds to a horizontal dilation of a graph by a factor of , that replacing by corresponds to a vertical dilation by a factor of , and determine the effects on the graph when the magnitude of the dilation factor lies between 0 and 1 xxkkyyll",
+      "Establish, using graphing applications, replacing by and replacing by in the equation of a graph corresponds to a dilation by a factor of , that is, an enlargement of the graph when and a reduction of the graph when xxkyykkk>10<k<1",
+      "Apply reflections, translations and dilations to functions within the scope of the Mathematics Advanced course, excluding trigonometric functions, determine the function rule and the graph of the transformed function, the domain and range of the transformed graph, any intercepts, asymptotes and discontinuities where appropriate, and describe which transformations have been applied",
+      "Use the principles of translations to identify the centre, radius, domain and range of graphs of circles in the form , where , and are constants (x-a)2+(y-b)2=r2abr",
+      "Find the centre and radius of circles of the form , where , and are constants, by completing the squares x2+y2+ax+by+c=0abc",
+      "Graph circles given their equations and find the equation of a circle from its graph",
+      "Recognise that the order in which individual transformations are applied to functions is important"
+    ]
+  },
+  "Probability and data": {
+    "Sets and set notation": [
+      "Define a set as a collection of objects, called the elements of the set, and represent a set using notation such as and 2,3,5,7{0,2,4,6,…}",
+      "Use the notation or to represent the number of elements in a finite set nAAA",
+      "Define the empty set as the set with no elements, denoted in set notation as ∅",
+      "Use the notation , or to represent the complement of a set with respect to some universal set AA'AcAU",
+      "Define to be a subset of if all the elements of are elements of ABAB",
+      "Define the intersection of sets and to be the set of elements that are in and in A∩BABAB",
+      "Define the union of sets and to be the set of elements that are in or in A∪BABAB",
+      "Define sets and to be disjoint if , that is, they have no elements in common ABA∩B=∅",
+      "Use Venn diagrams in practical situations to represent and interpret sets that may intersect in various ways within a universal set",
+      "Establish and use the rule A∪B=A+B-A∩B"
+    ],
+    "Probability": [
+      "Define an experiment or a trial to be any procedure that can be infinitely repeated and has a well-defined set of possible outcomes known as the sample space, denoted S",
+      "Identify an event as a subset of the sample space AAS",
+      "Define the probability of each outcome to be when all the outcomes are equally likely and the probability of the event to be 1SAPA=AS",
+      "Interpret the notation to be the event ‘ does not occur’, interpret to be the event ‘ and both occur’, and interpret to be the event ‘ or occurs’ AAA∩BABA∪BAB",
+      "Use Venn diagrams to represent the relationship between events within the same sample space, including mutually exclusive events, that is, events that as subsets of the sample space are disjoint",
+      "Establish and use the rules and PA=1-PAPA∪B=PA+PB-P(A∩B)",
+      "Use arrays and tree diagrams to determine the outcomes and probabilities for multistage events"
+    ],
+    "Conditional probability": [
+      "Define conditional probability as the probability that an event occurs given that another event has already occurred, and use the notation ABP(AB)",
+      "Examine conditional probability by restricting the sample space and event spaces in a Venn diagram, using a two-way table, a tree diagram and other arrays",
+      "Establish that when all outcomes are equally likely by restricting the sample space and event space, and hence , provided PA|B=A∩BBPA|B=P(A∩B)P(B)B≠0",
+      "Use the formulas for to solve practical problems involving conditional probability P(A|B)",
+      "Define two events to be independent if the occurrence of one event does not affect the probability that the other event occurs",
+      "Explain that two events and are independent means and , and show algebraically that if one of these formulas is true, then the other is also true ABPAB=PAPBA=PB",
+      "Use the formula , and the test for independence to prove that if two events are independent, then , and to prove conversely that if , then and are independent PA|B=P(A∩B)P(B)PAB=PAPA∩B=PA×P(B)PA∩B=PA×P(B)AB",
+      "Solve practical problems involving independent events"
+    ],
+    "Data": [
+      "Define a random variable as a variable whose value is the outcome of a random experiment",
+      "Compare discrete random variables with continuous random variables, describe their differences, and give practical examples of each",
+      "Organise finite datasets using a table or a spreadsheet, listing the values, frequency, relative frequency, cumulative frequency, and cumulative relative frequency",
+      "Graph the frequency, relative frequency, and cumulative frequency histograms and polygons of datasets, using spreadsheets or graphing applications, and identify the mode and median from the graphs, and from tables",
+      "Use the relative frequency to estimate the probability of results in experiments"
+    ]
+  }
+}
