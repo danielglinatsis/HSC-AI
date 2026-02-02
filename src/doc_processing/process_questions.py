@@ -36,7 +36,7 @@ def load_questions():
 
 if __name__ == "__main__":
     data = load_questions()
-    import clean_symbols
+    from doc_processing import clean_symbols, helpers
+
     cleaned_data = clean_symbols.clean_math(data)
-    import helpers
     helpers.print_question(cleaned_data, "2024-hsc-maths-adv.pdf", 27)

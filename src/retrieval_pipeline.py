@@ -6,6 +6,8 @@ from setup import retriever_setup
 
 def get_response(query, retriever):
     print("Retrieving relevant questions...")
+    if retriever is None or not hasattr(retriever, "get_relevant_documents"):
+        raise ValueError("Retriever is not initialised (None or missing get_relevant_documents).")
     qs = retriever.get_relevant_documents(query)
     print("Loading reranker...")
     reranker = retriever_setup.load_reranker()
@@ -16,7 +18,7 @@ def get_response(query, retriever):
 
 if __name__ == "__main__":
     from doc_processing import exam_extractor
-    pickle_path = "doc_processing/data/all_questions.pkl"
-    all_metadata, all_qs = exam_extractor.process_exams(pickle_path)
-    retriever = retriever_setup.create_ensemble_retriever(all_metadata, all_qs)
+    from config.constants import PICKLE_PATH
+    data = exam_extractor.process_exams(PICKLE_PATH)
+    retriever = retriever_setup.create_ensemble_retriever(data.get("questions", []))
     get_response("integration", retriever)

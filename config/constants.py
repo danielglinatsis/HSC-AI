@@ -1,15 +1,25 @@
 import re
+from pathlib import Path
 
 BM25_TOP_K = 25
 FAISS_TOP_K = 25
 COLBERT_TOP_K = 10
 
-EXAM_DIR = "exams"
-REVISION_DIR = "revision_files"
-PICKLE_PATH = "doc_processing/data/all_questions.pkl"
+# =================================================
+# PATHS (resolved from project root)
+# =================================================
+# Make all filesystem paths independent of current working directory.
+# `constants.py` lives in `<root>/config/`, so parents[1] is the repo root.
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
 
-FAISS_ROOT = "data/faiss/indexes"
+EXAM_DIR = str(PROJECT_ROOT / "documents" / "exams")
+REVISION_DIR = str(PROJECT_ROOT / "documents" / "revision_files")
+
+FAISS_ROOT = str(PROJECT_ROOT / "data" / "faiss" / "indexes")
 FAISS_NAME = "corpus_faiss"
+
+PICKLE_PATH = str(PROJECT_ROOT / "data" / "processed_exams" / "all_questions.pkl")
+
 EMBEDDING_MODEL = "sentence-transformers/all-MiniLM-L6-v2"
 
 LEFT_MARGIN_THRESHOLD = 80 

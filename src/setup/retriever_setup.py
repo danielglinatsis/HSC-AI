@@ -87,7 +87,7 @@ def load_or_update_faiss(docs: List[Document], embedding) -> FAISS:
     return vs
 
 
-def create_ensemble_retriever(all_metadata, nested_questions, weights=[0.4,0.6]):
+def create_ensemble_retriever(nested_questions, weights=[0.4,0.6]):
 
     flat_questions = flatten(nested_questions)
 
@@ -139,8 +139,8 @@ def rerank_documents(reranker, query, qs, top_k=COLBERT_TOP_K):
 
 if __name__ == "__main__":
     from doc_processing import exam_extractor
-    pickle_path = "doc_processing/data/all_questions.pkl"
-    all_metadata, all_qs = exam_extractor.process_exams(pickle_path)
-    retriever = create_ensemble_retriever(all_metadata, all_qs)
+    from config.constants import PICKLE_PATH
+    data = exam_extractor.process_exams(PICKLE_PATH)
+    retriever = create_ensemble_retriever(data.get("questions", []))
     if retriever:
         print("Ensemble retriever is ready for use.")

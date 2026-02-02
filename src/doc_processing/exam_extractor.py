@@ -6,8 +6,7 @@ import pickle
 
 from pathlib import Path
 
-from helpers import flatten
-
+from doc_processing import helpers
 # -------------------------------------------------
 # Allow importing constants from project root
 # -------------------------------------------------
@@ -15,6 +14,7 @@ PROJECT_ROOT = Path(__file__).resolve().parents[1]
 sys.path.append(str(PROJECT_ROOT))
 
 from config.constants import (
+    EXAM_DIR,
     EXEMPTIONS,
     QUESTION_REGEX,
     LEFT_MARGIN_THRESHOLD,
@@ -334,9 +334,9 @@ def get_all_questions():
     all_metadata = []
     all_qs = []
 
-    for file in sorted(os.listdir("exams")):
+    for file in sorted(os.listdir(EXAM_DIR)):
         print(f"Processing {file}")
-        metadata, qs = question_to_text(f"exams/{file}")
+        metadata, qs = question_to_text(os.path.join(EXAM_DIR, file))
         all_metadata.append(metadata)
         all_qs.append(qs)
 
@@ -373,7 +373,7 @@ def identify_exams(pickle_path):
 
     # Flattened structure
     flat_data = list(
-        flatten(
+        helpers.flatten(
             data if not isinstance(data, dict)
             else data.get("questions", [])
         )
@@ -402,7 +402,7 @@ def identify_exams(pickle_path):
 
 def process_exams(pickle_path):
     """
-    Syncs PDFs in /exams with stored pickle data
+    Syncs PDFs in `EXAM_DIR` with stored pickle data
     """
     all_metadata = []
     all_qs = []
@@ -411,11 +411,11 @@ def process_exams(pickle_path):
     # ---------------------------------------------
     # Scan exam directory
     # ---------------------------------------------
-    if not os.path.exists("exams"):
-        os.makedirs("exams")
+    if not os.path.exists(EXAM_DIR):
+        os.makedirs(EXAM_DIR)
 
     uploaded_exams = sorted(
-        f for f in os.listdir("exams") if f.endswith(".pdf")
+        f for f in os.listdir(EXAM_DIR) if f.endswith(".pdf")
     )
 
     # Helper to normalize names for comparison
@@ -482,7 +482,7 @@ def process_exams(pickle_path):
 
         for exam_file in new_exams:
 
-            file_path = os.path.join("exams", exam_file)
+            file_path = os.path.join(EXAM_DIR, exam_file)
             print(f"Processing {exam_file}...")
 
             metadata, qs = question_to_text(file_path)
@@ -537,7 +537,7 @@ def print_all_questions(data):
     Print all extracted questions
     """
     all_qs = data.get("questions", [])
-    flat_qs = list(flatten(all_qs))
+    flat_qs = list(helpers.flatten(all_qs))
 
     for i, q in enumerate(flat_qs, start=1):
 

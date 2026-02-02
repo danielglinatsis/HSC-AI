@@ -15,7 +15,7 @@ def group_pages_by_exam(docs):
         exam = doc.metadata.get("exam")
         page = doc.metadata.get("page")
         if exam and page is not None:
-            pages_by_exam[exam].add(page - 1)  # PDFs are 0-indexed
+            pages_by_exam[exam].add(page - 1)
         else:
             print(f"Warning: Document missing 'exam' or 'page' metadata: {doc.metadata}")
     return pages_by_exam
