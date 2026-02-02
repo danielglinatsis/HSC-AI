@@ -18,8 +18,11 @@ REVISION_DIR = str(PROJECT_ROOT / "documents" / "revision_files")
 FAISS_ROOT = str(PROJECT_ROOT / "data" / "faiss" / "indexes")
 FAISS_NAME = "corpus_faiss"
 
+SYLLABUS_DIR = "data/syllabus/Year_12_Maths_Advanced_FULL.json"
+
 PICKLE_PATH = str(PROJECT_ROOT / "data" / "processed_exams" / "all_questions.pkl")
 
+AI_MODEL = "gemini-2.5-flash"
 EMBEDDING_MODEL = "sentence-transformers/all-MiniLM-L6-v2"
 
 LEFT_MARGIN_THRESHOLD = 80 
@@ -89,8 +92,18 @@ EXEMPTIONS = {
     "marks in total"
 }
 
-RAG_INSTRUCTIONS = """
-You are a AI study tool that aims to assist students in revising for their exams.
-You will be given a user query that requests which specific topics/concepts the student wishes to revise.
-You will then return relevant questions from the student's exam papers that cover the requested topics/concepts.
+LLM_INSTRUCTIONS = """
+You are an AI study assistant helping students revise for exams.
+
+Inputs:
+A user query specifying the topics/concepts the student wants to revise.
+The full syllabus as a list of Sections, subsections and dotpoints.
+
+Task:
+Identify the syllabus items relevant to the user query.
+Generate a retriever-friendly RAG prompt tailored to the query, incorporating the relevant syllabus items.
+
+Output:
+A clear, concise RAG prompt that can be used to retrieve relevant exam content.
+
 """

@@ -169,7 +169,6 @@ def process_syllabus(data):
     with open(YEAR_12_FILE, "w", encoding="utf-8") as f:
         json.dump(data.get("Year 12", {}), f, indent=2, ensure_ascii=False)
 
-
 if __name__ == "__main__":
     data = extract_syllabus(DOCX_PATH)
     process_syllabus(data)

@@ -15,4 +15,3 @@ def google_api_setup() -> str | None:
     else:
         print("ERROR: No Google API Key found in secrets.env.")
         return None
-    
