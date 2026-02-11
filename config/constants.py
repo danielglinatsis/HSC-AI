@@ -22,7 +22,7 @@ SYLLABUS_DIR = "data/syllabus/Year_12_Maths_Advanced_FULL.json"
 
 PICKLE_PATH = str(PROJECT_ROOT / "data" / "processed_exams" / "all_questions.pkl")
 
-AI_MODEL = "gemini-2.5-flash"
+AI_MODEL = "gemini-2.5-pro"
 EMBEDDING_MODEL = "sentence-transformers/all-MiniLM-L6-v2"
 
 LEFT_MARGIN_THRESHOLD = 80 
@@ -93,17 +93,33 @@ EXEMPTIONS = {
 }
 
 LLM_INSTRUCTIONS = """
-You are an AI study assistant helping students revise for exams.
+You are an AI assistant processing HSC Mathematics exam questions.
 
-Inputs:
-A user query specifying the topics/concepts the student wants to revise.
-The full syllabus as a list of Sections, subsections and dotpoints.
+You will be provided with a batch of questions. Each question includes text, marks, and optional metadata.  
 
-Task:
-Identify the syllabus items relevant to the user query.
-Generate a retriever-friendly RAG prompt tailored to the query, incorporating the relevant syllabus items.
+Your task is to:
+
+1. Ensure each question is tagged correctly with relevant syllabus topics and subtopics from the provided tag set.
+2. If any tags are missing or incomplete, suggest the appropriate tags.
+3. Maintain multi-label tagging — questions may have multiple relevant topics.
+4. Optionally, assign difficulty levels (foundation, standard, advanced, extension-style) ad skill types (algebra manipulation, graph interpretation, modelling, proof reasoning, multi-step problem solving). Difficult questions typically appear at Question 30 onwards.
+5. Output each question in a structured JSON format including:
+   - question text
+   - marks
+   - assigned topics and subtopics
+   - optional difficulty and skill type
+
+Rules:
+- Only use topics from the provided controlled syllabus tag set.
+- Do not invent new topics.
+- Keep JSON strictly valid and machine-readable.
+- Process each batch independently; do not assume previous batches.
+
+Input:
+- A batch of questions (text + metadata)
+- The syllabus tag set in JSON format
 
 Output:
-A clear, concise RAG prompt that can be used to retrieve relevant exam content.
+- A JSON array of processed questions with tags and optional metadata.
 
 """

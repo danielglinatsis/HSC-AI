@@ -6,12 +6,13 @@ import pickle
 
 from pathlib import Path
 
-from doc_processing import helpers
 # -------------------------------------------------
 # Allow importing constants from project root
 # -------------------------------------------------
-PROJECT_ROOT = Path(__file__).resolve().parents[1]
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
 sys.path.append(str(PROJECT_ROOT))
+
+from src.doc_processing import helpers
 
 from config.constants import (
     EXAM_DIR,
@@ -561,10 +562,10 @@ def print_all_questions(data):
 
 if __name__ == "__main__":
 
-    pickle_file = "doc_processing/data/all_questions.pkl"
-    data = process_exams(pickle_file)
+    pickle_file_path = "doc_processing/data/all_questions.pkl"
+    data = process_exams(pickle_file_path)
 
     print(f"Total exams in system: {len(data['questions'])}")
 
-    names = identify_exams(pickle_file)
+    names = identify_exams(pickle_file_path)
     print(f"Verified exams in pickle: {names}")

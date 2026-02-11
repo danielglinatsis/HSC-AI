@@ -6,12 +6,15 @@ from pathlib import Path
 # Ensure project root is importable (for `config/` etc.)
 sys.path.append(str(Path(__file__).resolve().parent.parent))
 
+
+
 from ai_calls import retrieval_pipeline, llm_call
 
 from setup import retriever_setup, ai_model_setup
 from doc_processing import pdf_generator, exam_extractor
+from doc_processing.process_questions import tag_questions_with_llm, save_questions
 
-from config.constants import EXAM_DIR, PICKLE_PATH, REVISION_DIR, SYLLABUS_DIR
+from config.constants import EXAM_DIR, PICKLE_PATH, REVISION_DIR
 
 # =================================================
 # PRE-RUN SETUP
@@ -24,6 +27,8 @@ def setup():
     """    
     ai_model_setup.google_api_setup()
     data = exam_extractor.process_exams(PICKLE_PATH)
+    data = tag_questions_with_llm(data)
+    save_questions(data)
     retriever = retriever_setup.create_ensemble_retriever(data["questions"])
 
     return retriever
@@ -53,10 +58,8 @@ def run(retriever):
         print("Searching for relevant questions and generating response...")
 
         try:
-            rag_prompt = llm_call.analyse_syllabus(query, SYLLABUS_DIR)
-            print(f"USER QUERY: {query}")
-            print(f"RAG PROMPT: {rag_prompt}")
-            response = retrieval_pipeline.get_response(rag_prompt, retriever)
+
+            response = retrieval_pipeline.get_response(query, retriever)
             print("\n--- AI REVISION ASSISTANT ---")
             print(response)
             print("----------------------------")

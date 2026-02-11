@@ -8,7 +8,7 @@ def get_response(query, retriever):
     print("Retrieving relevant questions...")
     if retriever is None or not hasattr(retriever, "get_relevant_documents"):
         raise ValueError("Retriever is not initialised (None or missing get_relevant_documents).")
-    qs = retriever.get_relevant_documents(query)
+    qs = retriever.invoke(query)
     print("Loading reranker...")
     reranker = retriever_setup.load_reranker()
     print("Reranking questions...")

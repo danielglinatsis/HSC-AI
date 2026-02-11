@@ -1,1 +1,118 @@
-{}
+{
+    "Calculus": {
+      "Differentiation": [
+        "First principles",
+        "Derivative rules",
+        "Product rule",
+        "Quotient rule",
+        "Chain rule",
+        "Higher order derivatives",
+        "Implicit differentiation",
+        "Derivative of trigonometric functions",
+        "Derivative of exponential functions",
+        "Derivative of logarithmic functions",
+        "Stationary points",
+        "Increasing and decreasing intervals",
+        "Concavity and inflection points",
+        "Curve sketching",
+        "Optimisation problems",
+        "Related rates"
+      ],
+      "Integration": [
+        "Indefinite integrals",
+        "Definite integrals",
+        "Substitution method",
+        "Integration by parts",
+        "Area under curves",
+        "Area between curves",
+        "Volumes of revolution",
+        "Fundamental theorem of calculus",
+        "Differential equations",
+        "Initial value problems",
+        "Exponential growth and decay",
+        "Trapezoidal rule"
+      ]
+    },
+    "Functions": [
+      "Function notation",
+      "Domain and range",
+      "Composite functions",
+      "Inverse functions",
+      "Transformations of functions",
+      "Piecewise functions"
+    ],
+    "Polynomials": [
+      "Polynomial division",
+      "Remainder theorem",
+      "Factor theorem",
+      "Roots of polynomials",
+      "Multiplicity of roots"
+    ],
+    "Graphs": [
+      "Graph sketching",
+      "Intercepts",
+      "Turning points",
+      "Asymptotes",
+      "Rational function graphs",
+      "Exponential graphs",
+      "Logarithmic graphs"
+    ],
+    "Trigonometry": {
+      "Trig Fundamentals": [
+        "Trigonometric ratios",
+        "Exact trig values",
+        "Radians",
+        "Unit circle"
+      ],
+      "Trig Identities and Equations": [
+        "Trigonometric identities",
+        "Double angle identities",
+        "Trig equations",
+        "General solutions"
+      ],
+      "Trig Graphs": [
+        "Sine and cosine graphs",
+        "Tangent graphs",
+        "Amplitude and period transformations",
+        "Phase shift"
+      ]
+    },
+    "Logarithms and Exponentials": [
+      "Logarithm laws",
+      "Exponential equations",
+      "Logarithmic equations",
+      "Change of base"
+    ],
+    "Probability": {
+      "Basic Probability": [
+        "Conditional probability",
+        "Independent events",
+        "Tree diagrams",
+        "Venn diagrams",
+        "Bayes theorem"
+      ],
+      "Discrete Random Variables": [
+        "Probability distributions",
+        "Expected value",
+        "Variance",
+        "Binomial distribution",
+        "Binomial cumulative probability",
+        "Normal approximation to binomial"
+      ]
+    },
+    "Statistics": [
+      "Mean and standard deviation",
+      "Sampling",
+      "Sampling distributions",
+      "Normal distribution",
+      "Z-scores"
+    ],
+    "Financial Mathematics": [
+      "Simple interest",
+      "Compound interest",
+      "Depreciation",
+      "Annuities",
+      "Loan repayments"
+    ]
+  }
+  

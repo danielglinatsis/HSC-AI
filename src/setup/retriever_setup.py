@@ -54,37 +54,58 @@ def load_or_update_faiss(docs: List[Document], embedding) -> FAISS:
 
     if os.path.exists(index_path):
         print(f"Loading FAISS index from {index_path}")
-        vs = FAISS.load_local(
-            index_path,
-            embedding,
-            allow_dangerous_deserialization=True,
-        )
-
-        existing = {
-            d.page_content
-            for d in vs.docstore._dict.values()
-        }
-
-        new_docs = [
-            d for d in docs
-            if d.page_content not in existing
-        ]
-
-        if new_docs:
-            print(f"Appending {len(new_docs)} new items to FAISS index")
-            new_texts, new_metas = docs_to_texts_and_meta(new_docs)
-            vs.add_texts(new_texts, metadatas=new_metas)
-            vs.save_local(index_path)
+        try:
+            vs = FAISS.load_local(
+                index_path,
+                embedding,
+                allow_dangerous_deserialization=True,
+            )
+        except Exception as e:
+            print(f"FAISS index unreadable ({e}) — rebuilding")
         else:
-            print("No new FAISS entries found")
+            existing = {d.page_content for d in vs.docstore._dict.values()}
 
-        return vs
+            # Detect format mismatch: new docs have tag enrichment but the saved
+            # index was built before tags existed. Rebuild to avoid duplicates.
+            new_have_tags = any("Topics:" in d.page_content for d in docs)
+            old_have_tags = any("Topics:" in c for c in existing)
+            if new_have_tags and not old_have_tags:
+                print("Tag-enriched content detected — rebuilding FAISS index")
+                # Fall through to rebuild; save_local overwrites files in-place
+            else:
+                new_docs = [d for d in docs if d.page_content not in existing]
+                if new_docs:
+                    print(f"Appending {len(new_docs)} new items to FAISS index")
+                    new_texts, new_metas = docs_to_texts_and_meta(new_docs)
+                    vs.add_texts(new_texts, metadatas=new_metas)
+                    vs.save_local(index_path)
+                else:
+                    print("No new FAISS entries found")
+                return vs
 
     print(f"Creating new FAISS index at {index_path}")
     os.makedirs(FAISS_ROOT, exist_ok=True)
     vs = FAISS.from_texts(texts, embedding, metadatas=metadatas)
     vs.save_local(index_path)
     return vs
+
+
+def expand_content(question: dict) -> str:
+    """Build the text stored in page_content for retrieval.
+
+    Tags, difficulty, and skill types are appended so both BM25 and FAISS
+    can match against them directly, e.g. a query for 'integration' will
+    surface questions tagged 'Calculus / Integration' even when the raw
+    question text uses different wording.
+    """
+    parts = [question.get("text", "")]
+    if question.get("tags"):
+        parts.append("Topics: " + ", ".join(question["tags"]))
+    if question.get("difficulty"):
+        parts.append("Difficulty: " + question["difficulty"])
+    if question.get("skill_types"):
+        parts.append("Skills: " + ", ".join(question["skill_types"]))
+    return "\n".join(p for p in parts if p)
 
 
 def create_ensemble_retriever(nested_questions, weights=[0.4,0.6]):
@@ -97,8 +118,8 @@ def create_ensemble_retriever(nested_questions, weights=[0.4,0.6]):
 
     docs = [
         Document(
-            page_content=q["text"],
-            metadata={k:v for k,v in q.items() if k != "text"},
+            page_content= expand_content(q),
+            metadata={k: v for k, v in q.items() if k != "text"},
         )
         for q in flat_questions
     ]
