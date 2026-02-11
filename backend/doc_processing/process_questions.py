@@ -10,7 +10,7 @@ from typing import Any, Dict, List, Optional, Tuple
 # Allow importing constants from project root
 # -------------------------------------------------
 REPO_ROOT = Path(__file__).resolve().parents[2]
-SRC_ROOT = REPO_ROOT / "src"
+SRC_ROOT = REPO_ROOT / "backend"
 for p in (REPO_ROOT, SRC_ROOT):
     if str(p) not in sys.path:
         sys.path.append(str(p))

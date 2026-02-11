@@ -6,8 +6,6 @@ from pathlib import Path
 # Ensure project root is importable (for `config/` etc.)
 sys.path.append(str(Path(__file__).resolve().parent.parent))
 
-
-
 from ai_calls import retrieval_pipeline, llm_call
 
 from setup import retriever_setup, ai_model_setup

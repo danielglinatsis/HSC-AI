@@ -12,7 +12,7 @@ from pathlib import Path
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 sys.path.append(str(PROJECT_ROOT))
 
-from src.doc_processing import helpers
+from backend.doc_processing import helpers
 
 from config.constants import (
     EXAM_DIR,
