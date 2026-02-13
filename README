@@ -1,3 +1,25 @@
-# ExamReader
+# ExamReader (HSC-AI)
 
-# TODO
+ExamReader is a local **HSC Mathematics exam revision assistant**. It ingests past-paper PDFs, extracts questions, tags them against the syllabus using a Gemini-powered LLM step, and builds a retriever (FAISS/BM25 + reranking) so you can search by topic (e.g. “integration”, “binomial”, “proof”).
+
+When you enter a query, it retrieves the most relevant exam questions and generates a **custom revision PDF** containing the original source pages, labelled with the exam filename.
+
+## What it does
+- **PDF ingestion**: reads PDFs from `documents/exams/` and extracts question blocks.
+- **Question dataset**: caches extracted questions in `data/processed_exams/all_questions.pkl`.
+- **Tagging**: uses an LLM prompt + syllabus tag set to attach topic metadata.
+- **Retrieval**: creates an ensemble retriever and reranks results for relevance.
+- **Revision output**: writes a compiled PDF to `documents/revision_files/` with “Source: …” headers.
+
+## Quickstart (backend)
+1. Put exam PDFs in `documents/exams/` (must be `.pdf`).
+2. Install dependencies:
+
+   `pip install -r requirements.txt`
+
+3. Ensure your Gemini API key is available (the project includes `secrets.env`; load it however you normally do).
+4. Run:
+
+   `python backend/main.py`
+
+Then type a topic to generate a revision PDF (enter `q` to quit).
