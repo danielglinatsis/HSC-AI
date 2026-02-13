@@ -30,9 +30,9 @@ from config.constants import (
 # =================================================
 
 def extract_pages(FILE_PATH):
-    """
+    '''
     Extract all pages from a PDF exam file
-    """
+    '''
     pages = []
 
     try:
@@ -60,10 +60,10 @@ def extract_pages(FILE_PATH):
 # =================================================
 
 def extract_page_number_from_text(text, fallback):
-    """
+    '''
     Extracts a visible page number from page text
     If no match is found, the PDF page index is returned
-    """
+    '''
     patterns = [
         r'Page\s+(\d+)',
         r'Pg\s+(\d+)',
@@ -83,7 +83,7 @@ def extract_page_number_from_text(text, fallback):
 # =================================================
 
 def is_question_start(span):
-    """
+    '''
     Identifies question starts
 
     Detects:
@@ -95,7 +95,7 @@ def is_question_start(span):
         - Matches QUESTION_REGEX
         - Left-aligned on page
         - Sufficient font size
-    """
+    '''
     x0, _, _, _ = span.get("bbox", (0, 0, 0, 0))
 
     text = span.get("text", "").strip()
@@ -121,9 +121,9 @@ def is_question_start(span):
 # =================================================
 
 def extract_questions(pages):
-    """
+    '''
     Parses page dictionaries and extracts question text blocks
-    """
+    '''
     all_questions = []
 
     current_question = None
@@ -265,14 +265,14 @@ def extract_questions(pages):
 # =================================================
 
 def combine_snippets(questions):
-    """
+    '''
     Combines fragmented question blocks safely.
 
     Rules:
-        • Merge (a), (b), (c) subparts
-        • Merge '(continued)' questions
-        • Never merge separate MCQs
-    """
+        - Merge (a), (b), (c) subparts
+        - Merge '(continued)' questions
+        - Never merge separate MCQs
+    '''
     combined_questions = []
 
     main_question_pattern = re.compile(
@@ -325,6 +325,10 @@ def combine_snippets(questions):
 # =================================================
 
 def question_to_text(file_path):
+    '''
+    Full per-file pipeline: extracts pages, detects question boundaries,
+    and merges subpart fragments. Returns (metadata, questions)
+    '''
     pages, metadata = extract_pages(file_path)
     questions = extract_questions(pages)
     final_questions = combine_snippets(questions)
@@ -332,6 +336,9 @@ def question_to_text(file_path):
 
 
 def get_all_questions():
+    '''
+    Returns all process questions and metadata
+    '''
     all_metadata = []
     all_qs = []
 
@@ -352,9 +359,9 @@ def get_all_questions():
 # =================================================
 
 def identify_exams(pickle_path):
-    """
-    Extracts exams already stored in  pickle file
-    """
+    '''
+    Extracts exams already stored in pickle file
+    '''
     try:
         with open(pickle_path, "rb") as f:
             data = pickle.load(f)
@@ -402,9 +409,9 @@ def identify_exams(pickle_path):
 
 
 def process_exams(pickle_path):
-    """
+    '''
     Syncs PDFs in `EXAM_DIR` with stored pickle data
-    """
+    '''
     all_metadata = []
     all_qs = []
     processed_exam_names = set()
@@ -534,9 +541,9 @@ def process_exams(pickle_path):
 # =================================================
 
 def print_all_questions(data):
-    """
+    '''
     Print all extracted questions
-    """
+    '''
     all_qs = data.get("questions", [])
     flat_qs = list(helpers.flatten(all_qs))
 

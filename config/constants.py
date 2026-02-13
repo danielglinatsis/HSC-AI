@@ -92,7 +92,7 @@ EXEMPTIONS = {
     "marks in total"
 }
 
-LLM_INSTRUCTIONS = """
+LLM_INSTRUCTIONS = '''
 You are an AI assistant processing HSC Mathematics exam questions.
 
 You will be provided with a batch of questions. Each question includes text, marks, and optional metadata.  
@@ -122,4 +122,4 @@ Input:
 Output:
 - A JSON array of processed questions with tags and optional metadata.
 
-"""
+'''

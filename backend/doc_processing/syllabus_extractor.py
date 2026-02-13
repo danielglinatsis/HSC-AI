@@ -24,7 +24,7 @@ YEAR_RE = re.compile(r"\bYear\s*(11|12)\b", re.IGNORECASE)
 
 
 def extract_syllabus(docx_path: Path):
-    """
+    '''
     Extract syllabus into the hierarchy:
         Year -> Major topic -> Minor topic -> [syllabus points]
 
@@ -34,12 +34,14 @@ def extract_syllabus(docx_path: Path):
     - Content sections are delimited by "Content" / "Outcomes"
     - Major topics use Heading3, minor topics use Heading5, points are ListParagraph
     - Math equations (OMML) are captured via `m:t` tokens and appended to text
-    """
+    '''
 
     def clean_text(s: str) -> str:
+        '''Normalises whitespace and replaces non-breaking spaces'''
         return re.sub(r"\s+", " ", (s or "").replace("\u00a0", " ")).strip()
 
     def get_paragraph_text(p) -> str:
+        '''Extracts all text content from a paragraph element, including OMML math tokens'''
         parts = []
         for node in p.iter():
             if node.tag == f"{{{NS['w']}}}t" and node.text:
@@ -61,6 +63,7 @@ def extract_syllabus(docx_path: Path):
         return clean_text(text)
 
     def get_style_id(p):
+        '''Returns the paragraph style ID string, or None if not set'''
         p_pr = p.find("w:pPr", NS)
         if p_pr is None:
             return None
@@ -70,12 +73,14 @@ def extract_syllabus(docx_path: Path):
         return p_style.get(f"{{{NS['w']}}}val")
 
     def has_numbering(p) -> bool:
+        '''Returns True if the paragraph has a numbering definition (list item)'''
         p_pr = p.find("w:pPr", NS)
         if p_pr is None:
             return False
         return p_pr.find("w:numPr", NS) is not None
 
     def heading_level(style_id):
+        '''Returns the numeric heading level from a style ID (e.g. "Heading3" → 3), or None'''
         if not style_id:
             return None
         m = re.fullmatch(r"Heading(\d+)", style_id)
@@ -87,6 +92,7 @@ def extract_syllabus(docx_path: Path):
             return None
 
     def detect_year(text):
+        '''Returns "Year 11" or "Year 12" if the text contains a year heading, else None'''
         m = YEAR_RE.search(text)
         if not m:
             return None

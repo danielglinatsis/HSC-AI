@@ -4,9 +4,9 @@ from langchain_core.documents import Document
 
 
 def flatten(items: Iterable[Union[list, tuple, any]]) -> List:
-    """
+    '''
     Flattens lists
-    """
+    '''
     flattened = []
     for item in items or []:
         if isinstance(item, (list, tuple)):
@@ -16,6 +16,7 @@ def flatten(items: Iterable[Union[list, tuple, any]]) -> List:
     return flattened
 
 def docs_to_texts_and_meta(docs: List[Document]):
+    '''Splits a list of Documents into a (texts, metadatas) tuple'''
     return (
         [d.page_content for d in docs],
         [d.metadata for d in docs],
@@ -23,9 +24,9 @@ def docs_to_texts_and_meta(docs: List[Document]):
 
 
 def print_question(data, exam_name, question_number):
-    """
+    '''
     Prints the specified printed question (e.g. Question 29)
-    """
+    '''
     if isinstance(data, dict):
         all_qs = data.get("questions", [])
     else:

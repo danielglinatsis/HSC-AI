@@ -10,6 +10,9 @@ from reportlab.lib import colors
 # Group retrieved docs by exam
 # -----------------------------
 def group_pages_by_exam(docs):
+    '''
+    Groups pages of documents by exam name metadata
+    '''
     pages_by_exam = defaultdict(set)
     for doc in docs:
         exam = doc.metadata.get("exam")
@@ -25,9 +28,9 @@ def group_pages_by_exam(docs):
 # -----------------------------
 
 def create_header_page(original_page, label_text):
-    """
+    '''
     Returns a new page with a header overlayed on the original page
-    """
+    '''
     packet = io.BytesIO()
     can = canvas.Canvas(packet, pagesize=letter)
 
@@ -62,6 +65,10 @@ def build_custom_pdf(
     exams_dir,
     output_path
 ):
+    '''
+    Builds a compiled PDF from the original exam pages matching the retrieved documents.
+    Each page is overlaid with a red "Source: <filename>" header.
+    '''
     writer = PdfWriter()
     pages_by_exam = group_pages_by_exam(retrieved_docs)
 

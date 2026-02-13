@@ -19,10 +19,10 @@ from config.constants import EXAM_DIR, PICKLE_PATH, REVISION_DIR
 # =================================================
 
 def setup():
-    """
+    '''
     Processes any necessary documents
     Initialises ensemble retriever with processed documents
-    """    
+    '''    
     ai_model_setup.google_api_setup()
     data = exam_extractor.process_exams(PICKLE_PATH)
     data = tag_questions_with_llm(data)
@@ -36,10 +36,10 @@ def setup():
 # =================================================
 
 def run(retriever):
-    """
+    '''
     Main loop
     Requests user query, extracts relevant questions and builds a new PDF document
-    """
+    '''
     if retriever is None:
         print("Retriever failed to initialise (no questions loaded).")
         print(f"Check that PDFs exist in '{EXAM_DIR}' and the pickle path '{PICKLE_PATH}' is valid.")

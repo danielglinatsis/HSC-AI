@@ -5,6 +5,10 @@ sys.path.append(str(Path(__file__).resolve().parent.parent))
 from setup import retriever_setup
 
 def get_response(query, retriever, top_k=10):
+    '''
+    Retrieves relevant questions for a query using the ensemble retriever,
+    then reranks results with a cross-encoder and returns the top_k documents
+    '''
     print("Retrieving relevant questions...")
     if retriever is None or not hasattr(retriever, "get_relevant_documents"):
         raise ValueError("Retriever is not initialised (None or missing get_relevant_documents).")

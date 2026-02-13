@@ -38,6 +38,7 @@ def setup_bm25_retriever(docs: List[Document]):
 
 
 def setup_faiss_retriever(docs: List[Document]):
+    '''Creates a FAISS dense retriever, loading or updating a persisted index as needed'''
     if not docs:
         raise ValueError("No documents provided for FAISS indexing")
 
@@ -49,6 +50,10 @@ def setup_faiss_retriever(docs: List[Document]):
 
 
 def load_or_update_faiss(docs: List[Document], embedding) -> FAISS:
+    '''
+    Loads an existing FAISS index and appends any new documents, or creates one from scratch.
+    Rebuilds the index if tag-enriched content is detected in new docs but not the saved index.
+    '''
     index_path = os.path.join(FAISS_ROOT, FAISS_NAME)
     texts, metadatas = docs_to_texts_and_meta(docs)
 
@@ -91,13 +96,13 @@ def load_or_update_faiss(docs: List[Document], embedding) -> FAISS:
 
 
 def expand_content(question: dict) -> str:
-    """Build the text stored in page_content for retrieval.
+    '''Build the text stored in page_content for retrieval.
 
     Tags, difficulty, and skill types are appended so both BM25 and FAISS
     can match against them directly, e.g. a query for 'integration' will
     surface questions tagged 'Calculus / Integration' even when the raw
     question text uses different wording.
-    """
+    '''
     parts = [question.get("text", "")]
     if question.get("tags"):
         parts.append("Topics: " + ", ".join(question["tags"]))
@@ -108,7 +113,11 @@ def expand_content(question: dict) -> str:
     return "\n".join(p for p in parts if p)
 
 
-def create_ensemble_retriever(nested_questions, weights=[0.4,0.6]):
+def create_ensemble_retriever(nested_questions, weights=[0.4, 0.6]):
+    '''
+    Builds a BM25 + FAISS ensemble retriever from the nested questions structure.
+    Returns None if no questions are found after flattening.
+    '''
 
     flat_questions = flatten(nested_questions)
 
@@ -137,6 +146,7 @@ def create_ensemble_retriever(nested_questions, weights=[0.4,0.6]):
 # =================================================
 
 def load_reranker():
+    '''Loads the cross-encoder reranker model, using GPU if available'''
     device = "cuda" if torch.cuda.is_available() else "cpu"
     model_name = "cross-encoder/ms-marco-MiniLM-L-6-v2"
     reranker = CrossEncoder(model_name, device=device)
@@ -144,6 +154,10 @@ def load_reranker():
 
 
 def rerank_documents(reranker, query, qs, top_k=COLBERT_TOP_K):
+    '''
+    Scores each document against the query using the cross-encoder
+    and returns the top_k highest-scoring documents
+    '''
     # Extract text from Document objects if needed
     texts = [q.page_content if hasattr(q, 'page_content') else q for q in qs]
     

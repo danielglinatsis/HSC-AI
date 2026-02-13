@@ -19,12 +19,16 @@ from config.constants import PICKLE_PATH, SYLLABUS_DIR, PROJECT_ROOT as CONSTANT
 
 
 def load_syllabus(path: Path) -> Any:
+    '''Loads and returns the syllabus JSON from the given path'''
     with path.open("r", encoding="utf-8") as f:
         return json.load(f)
 
 
 def extract_syllabus(text: str) -> List[Dict[str, Any]]:
-
+    '''
+    Parses a JSON array of tagged questions out of raw LLM response text,
+    stripping any markdown code fences before parsing
+    '''
     if not text:
         raise ValueError("Empty LLM response")
 
@@ -51,11 +55,14 @@ def extract_syllabus(text: str) -> List[Dict[str, Any]]:
 
 
 def build_question_id(exam: str, page: Any, index_in_exam: int) -> str:
+    '''Builds a stable unique identifier for a question in the format "<exam>::p<page>::q<index>"'''
     return f"{exam}::p{page}::q{index_in_exam:03d}"
 
 
 def iterate_questions(data: Dict[str, Any]) -> List[Tuple[str, Dict[str, Any]]]:
-
+    '''
+    Flattens the nested questions structure and returns a list of (question_id, question_dict) pairs
+    '''
     all_qs = data.get("questions", [])
     out: List[Tuple[str, Dict[str, Any]]] = []
     for exam_qs in all_qs:
@@ -77,7 +84,7 @@ def tag_questions_with_llm(
     syllabus_path: Optional[Path] = None,
     batch_size: int = 8,
 ) -> Dict[str, Any]:
-    """
+    '''
     Final pre-processing step: use an LLM to assign syllabus tags to each question.
 
     This function mutates question dicts in-place by adding (as available):
@@ -86,7 +93,7 @@ def tag_questions_with_llm(
       - `skill_types`: list[str]
 
     These keys become retriever metadata automatically (see `retriever_setup.py`).
-    """
+    '''
 
     # Resolve syllabus JSON relative to repo root (constants uses a relative string)
     if syllabus_path is None:
@@ -134,14 +141,14 @@ def tag_questions_with_llm(
             for (qid, q) in batch
         ]
 
-        prompt = f"""{LLM_INSTRUCTIONS}
+        prompt = f'''{LLM_INSTRUCTIONS}
 
 Input batch (JSON):
 {json.dumps(batch_payload, ensure_ascii=False)}
 
 Controlled syllabus tag set (JSON):
 {json.dumps(syllabus, ensure_ascii=False)}
-"""
+'''
         try:
             response = model.generate_content(prompt)
             items = extract_syllabus((response.text or "").strip())
@@ -193,10 +200,10 @@ Controlled syllabus tag set (JSON):
 
 
 def save_questions(data: Dict[str, Any], out_path: str | Path = PICKLE_PATH) -> None:
-    """
+    '''
     Persists the processed questions back to disk (pickle).
     Default path matches the app's expected `PICKLE_PATH`.
-    """
+    '''
     path = Path(out_path)
     path.parent.mkdir(parents=True, exist_ok=True)
     with path.open("wb") as f:
@@ -204,6 +211,7 @@ def save_questions(data: Dict[str, Any], out_path: str | Path = PICKLE_PATH) -> 
 
 
 def process_questions(all_metadata, all_qs):
+    '''Packages metadata and questions into the standard dict and saves to pickle'''
     out_path = Path("backend/doc_processing/all_questions.pkl")
     out_path.parent.mkdir(parents=True, exist_ok=True)
 
@@ -221,6 +229,7 @@ def process_questions(all_metadata, all_qs):
     return data
 
 def load_questions():
+    '''Loads and returns the processed question dataset from the pickle file'''
     with open(PICKLE_PATH, "rb") as f:
         data = pickle.load(f)
     return data
