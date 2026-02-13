@@ -87,8 +87,6 @@ def tag_questions_with_llm(
 
     These keys become retriever metadata automatically (see `retriever_setup.py`).
     """
-    if not isinstance(data, dict):
-        raise TypeError("tag_questions_with_llm expects a dict with keys: metadata/questions")
 
     # Resolve syllabus JSON relative to repo root (constants uses a relative string)
     if syllabus_path is None:
@@ -206,7 +204,7 @@ def save_questions(data: Dict[str, Any], out_path: str | Path = PICKLE_PATH) -> 
 
 
 def process_questions(all_metadata, all_qs):
-    out_path = Path("doc_processing/data/all_questions.pkl")
+    out_path = Path("backend/doc_processing/all_questions.pkl")
     out_path.parent.mkdir(parents=True, exist_ok=True)
 
     data = {

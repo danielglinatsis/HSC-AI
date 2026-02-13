@@ -562,7 +562,7 @@ def print_all_questions(data):
 
 if __name__ == "__main__":
 
-    pickle_file_path = "doc_processing/data/all_questions.pkl"
+    pickle_file_path = "backend/doc_processing/all_questions.pkl"
     data = process_exams(pickle_file_path)
 
     print(f"Total exams in system: {len(data['questions'])}")

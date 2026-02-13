@@ -4,7 +4,7 @@ sys.path.append(str(Path(__file__).resolve().parent.parent))
 
 from setup import retriever_setup
 
-def get_response(query, retriever):
+def get_response(query, retriever, top_k=10):
     print("Retrieving relevant questions...")
     if retriever is None or not hasattr(retriever, "get_relevant_documents"):
         raise ValueError("Retriever is not initialised (None or missing get_relevant_documents).")
@@ -12,8 +12,8 @@ def get_response(query, retriever):
     print("Loading reranker...")
     reranker = retriever_setup.load_reranker()
     print("Reranking questions...")
-    reranked_qs = retriever_setup.rerank_documents(reranker, query, qs)
-    
+    reranked_qs = retriever_setup.rerank_documents(reranker, query, qs, top_k=top_k)
+
     return reranked_qs
 
 if __name__ == "__main__":

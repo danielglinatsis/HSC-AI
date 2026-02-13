@@ -20,9 +20,9 @@ FAISS_NAME = "corpus_faiss"
 
 SYLLABUS_DIR = "data/syllabus/Year_12_Maths_Advanced_FULL.json"
 
-PICKLE_PATH = str(PROJECT_ROOT / "data" / "processed_exams" / "all_questions.pkl")
+PICKLE_PATH = str(PROJECT_ROOT / "backend" / "doc_processing" / "data" / "all_questions.pkl")
 
-AI_MODEL = "gemini-2.5-pro"
+AI_MODEL = "gemini-3-pro"
 EMBEDDING_MODEL = "sentence-transformers/all-MiniLM-L6-v2"
 
 LEFT_MARGIN_THRESHOLD = 80 
